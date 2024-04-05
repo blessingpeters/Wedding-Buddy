@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.hero-section{
+    background: url(/assets/images/Wedding-image.png) no-repeat;
+}
