@@ -14,7 +14,7 @@ const Header = () => {
           Connecting Couples to the right <br /> Vendors
         </p>
         <div className="mt-4 mb-20">
-          <button className="btn border-none bg-burgundy-100 rounded-md mx-4 hover:bg-[#50112E66]">
+          <button className="btn border-none bg-burgundy-100 rounded-md mx-4 hover:bg-burgundy-50">
             Become a Vendor
           </button>
           <button className="btn btn-outline border border-burgundy-100 rounded-md">

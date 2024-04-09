@@ -1,13 +1,13 @@
 const Offers = () => {
   return (
-    <section className="py-10 lg:px-24 md:px-10 max-md:px-3 flex flex-col">
+    <section className="pt-10 lg:px-24 md:px-10 max-md:px-3 flex flex-col">
       <div className="pb-10 text-center">
-        <h2 className="text-3xl font-semibold text-[#4A4646]">
+        <h2 className="text-3xl font-semibold text-graywhite-600">
           Fuss-free destination wedding planning starts here
         </h2>
-        <p className="text-lg font-lato text-[#7D7777]">
+        <p className="w-[80%] mt-5 mx-auto text-lg font-lato text-graywhite-400">
           Simple wedding planning to help you stay on track and plan that dream
-          wedding Discover your destination wedding vendors, everything from
+          wedding <br /> Discover your destination wedding vendors, everything from
           your wedding venue, photographers & videographers, wedding planners to
           music & entertainment.
         </p>
