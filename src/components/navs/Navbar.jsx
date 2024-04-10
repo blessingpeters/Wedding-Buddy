@@ -31,7 +31,7 @@ const Navbar = () => {
   ];
 
   const dropdownItems = [
-    { name: "Vendor’s Login", href: "#" },
+    { name: "Vendor’s Login", href: "/" },
     { name: "Couple’s Login", href: "#" },
     { name: "My Account", href: "#" },
   ];

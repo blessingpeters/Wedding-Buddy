@@ -1,14 +1,14 @@
-import React from "react";
-import Navbar from "./Navbar";
 
-const Header = () => {
+import Navbar from "../navs/Navbar";
+
+const ServiceHeader = () => {
   return (
     <section className="hero-section h-full  font-raleway w-full">
       <Navbar />
         <div className="md:py-44 py-28">
 
 
-        <div className="sm:w-max w-11/12 lg:my-10 mx-auto px-4  py-12 md:p-10 rounded-2xl text-center text-white backdrop-blur-sm bg-white/20">
+        <div className="sm:w-max w-11/12 lg:my-10 mx-auto px-4  py-12 md:p-10 rounded-2xl text-center text-white">
             <h1 className="mb-5 lg:text-6xl text-4xl font-bold">
             Plan The Perfect Wedding
             </h1>
@@ -30,4 +30,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default ServiceHeader;

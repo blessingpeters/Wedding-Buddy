@@ -1,6 +1,6 @@
-import Footer from "../components/Footer";
+import WbButton from "../components/common/WbButton";
 import Gallery from "../components/Gallery";
-import Header from "../components/Header";
+import Header from "../components/header/Header";
 import Offers from "../components/Offers";
 import Review from "../components/Review"
 
@@ -10,7 +10,7 @@ function HomePage() {
       <Header />
       <Offers />
       <Gallery />
-      <section className="bg-[#50112E1A] font-raleway grid grid-cols-2 md:grid-cols-4 gap-10 py-14 pb-48">
+      <section className="bg-[#50112E1A] text-xl font-semibold font-raleway grid grid-cols-2 md:grid-cols-4 gap-10 py-14 pb-48">
         <div className="flex flex-col items-center text-burgundy-100">
           <img src="/assets/icons/house-icon.svg" alt="" />
           <p>50</p>
@@ -47,10 +47,11 @@ function HomePage() {
           alt=""
         />
         <div className=" w-full md:w-[642px] mx-auto relative -top-32 bg-burgundy-100 text-white p-10 text-center">
-          <h4>LETS MEET</h4>
+          <h4 className="font-bold text-xl">LETS MEET</h4>
           <button className="border border-white px-8 py-4 rounded-md my-10">
             Book a Vendor
           </button>
+
           <p>
             Should you have any enquiries about wdding Buddy, please fill out
             the form below
@@ -89,11 +90,10 @@ function HomePage() {
             <textarea className="border border-graywhite-400 w-full rounded-md bg-transparent" name="message" id="message" cols="70" rows="8"></textarea>
           </div>
 
-          <button className="w-full bg-burgundy-100 py-4 text-white text-lg rounded-md hover:bg-burgundy-50">Send</button>
+          <WbButton className='w-full' text='Send' />
         </form>
       </section>
       <Review />
-      <Footer />
     </>
   );
 }

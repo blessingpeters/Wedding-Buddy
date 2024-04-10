@@ -1,11 +1,10 @@
-
-import Header from "../components/Header";
+import ServiceHeader from "../components/header/ServiceHeader";
 
 
 function Services() {
   return (
     <>
-      <Header />
+      <ServiceHeader />
 
     </>
   );

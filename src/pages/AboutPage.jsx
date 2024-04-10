@@ -1,13 +1,9 @@
-import Footer from "../components/Footer";
-import Header from "../components/Header";
-import Review from "../components/Review"
+import AboutHeader from "../components/header/AboutHeader";
 
 function AboutPage() {
   return (
     <>
-      <Header />
-      <Review />
-      <Footer />
+      <AboutHeader />
     </>
   );
 }
