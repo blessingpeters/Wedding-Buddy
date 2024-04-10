@@ -17,7 +17,8 @@ export default withMT({
       colors:{
         burgundy:{
           50: "#50112E66",
-          100: "#50112E"
+          100: "#50112E",
+          500: "#7A1A46",
         },
         graywhite:{
           200: "#DBDBDB",
@@ -25,11 +26,15 @@ export default withMT({
           600: "#4A4646",
         }
       },
+      boxShadow:{
+        '3xl': "0px 0px 22px -10px rgba(0,0,0,1)",
+
+      }
     },
   },
 
   plugins: [],
- 
+
 
 })
 

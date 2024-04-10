@@ -2,10 +2,10 @@ const Gallery = () => {
     return (
       <section className="py-10 pb-16 lg:px-24 md:px-10 px-3 flex flex-col">
         <div className="pb-10 text-center">
-          <h2 className="text-3xl font-semibold text-graywhite-600">
+          <h2 className="md:text-4xl text-2xl font-raleway font-semibold text-graywhite-600">
           Our Featured Wedding Photos/Gallery
           </h2>
-          <p className="w-[80%] mt-5 mx-auto text-lg font-lato text-graywhite-400">
+          <p className="w-[80%] mt-5 mx-auto md:text-xl text-lg font-lato text-graywhite-400">
           Allow yourself to be enveloped by the timeless elegance of eternal love: immerse your senses in our carefully curated collection of exquisite featured wedding photos and galleries, where each and every moment intricately weaves a captivating narrative.
           </p>
         </div>

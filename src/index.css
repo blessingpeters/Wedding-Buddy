@@ -2,11 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+   /* Hide scrollbar for IE, Edge and Firefox */
+    .no-scrollbar {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+  }
+}
+/* @apply max-w-screen-2xl mx-auto */
 
 .hero-section{
-    background: url(/assets/images/Wedding-image.png) no-repeat;
+    background: url(/assets/images/Wedding-image.png) no-repeat center;
+    background-size: cover;
+    object-fit: scale-down;
 }
-/* .book {
-    background: url(/assets/images/rosette-left.svg) left no-repeat, url(/assets/images/rosette-right.svg) right top no-repeat;
-    height: 200px;
-} */
+@media screen and (max-width: 768px) {
+    .hero-section{
+        background-size: auto 100%;
+    }
+}
+

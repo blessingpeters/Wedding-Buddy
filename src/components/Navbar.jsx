@@ -1,122 +1,168 @@
-
+import { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
-    return (
-        // <div className="navbar bg-burgundy-50 px-10">
-        //   <div className="flex-1">
-        //     <a className="h-16 w-16"><img src="assets/images/wblogo.svg" alt="" /></a>
-        //   </div>
-        //   <div className="flex-none">
-        //     <ul className="menu menu-horizontal px-1 text-white">
-        //       <li className="mx-4">
-        //         <a>Home</a>
-        //       </li>
-        //       <li className="mx-4">
-        //         <a>Services</a>
-        //       </li>
-        //       <li className="mx-4">
-        //         <a>Portfolio</a>
-        //       </li>
-        //       <li className="mx-4">
-        //         <a>Vendors</a>
-        //       </li>
-        //       <li className="mx-4">
-        //         <a>Contact Us</a>
-        //       </li>
-        //       <li>
-        //         <details>
-        //           <summary> </summary>
-        //           <ul className="p-2 bg-base-100 rounded-t-none text-black">
-        //             <li>
-        //               <a>Vendor’s Login</a>
-        //             </li>
-        //             <li>
-        //               <a>Couple’s Login</a>
-        //             </li>
-        //             <li>
-        //               <a>My Account</a>
-        //             </li>
-        //           </ul>
-        //         </details>
-        //       </li>
-        //     </ul>
-        //   </div>
-        // </div>
+  const [isOpen, setIsOpen] = useState(false);
+  const navbarRef = useRef(); // Ref for the navbar to detect outside clicks
+  const toggleButtonRef = useRef(); // Ref for the toggle button
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
+  const menuItems = [
+    {
+      name: "Home",
+      href: "/",
+    },
+    {
+      name: "Services",
+      href: "/services",
+    },
+    {
+      name: "Portfolio",
+      href: "/about",
+    },
+    {
+        name: "Vendors",
+        href: "/vendors"
+    },
+    {
+      name: "Contact Us",
+      href: "/contact",
+    },
+  ];
 
-        <nav className="bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700">
-            <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-                <a href="#" className="flex items-center space-x-3 rtl:space-x-reverse">
-                    <img src="https://flowbite.com/docs/images/logo.svg" className="h-8" alt="Flowbite Logo" />
-                    <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span>
-                </a>
-                <button data-collapse-toggle="navbar-multi-level" type="button" className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-multi-level" aria-expanded="false">
-                    <span className="sr-only">Open main menu</span>
-                    <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-                        <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 1h15M1 7h15M1 13h15" />
-                    </svg>
+  const dropdownItems = [
+    { name: "Vendor’s Login", href: "#" },
+    { name: "Couple’s Login", href: "#" },
+    { name: "My Account", href: "#" },
+  ];
+  const toggleSidebar = () => setIsOpen(!isOpen);
+  useEffect(() => {
+    const handleOutsideClick = (event) => {
+      if (
+        isOpen &&
+        navbarRef.current &&
+        !navbarRef.current.contains(event.target) &&
+        toggleButtonRef.current &&
+        !toggleButtonRef.current.contains(event.target)
+      ) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener("click", handleOutsideClick);
+    return () => document.removeEventListener("click", handleOutsideClick);
+  }, [isOpen]);
+
+  return (
+    <>
+      <nav className="bg-burgundy-100/40 z-40">
+        <div className="max-w-screen-2xl w-full flex flex-wrap items-center justify-between mx-auto max-md:px-3 relative">
+          <Link
+            to="/"
+            className="flex items-center space-x-3 rtl:space-x-reverse h-20 w-32"
+          >
+            <img
+              className="w-full"
+              src="assets/images/wblogo.svg"
+              alt="Wedding buddy Logo"
+            />
+          </Link>
+
+          <button
+            ref={toggleButtonRef}
+            onClick={toggleSidebar}
+            className="md:hidden text-white z-50 mr-3"
+          >
+            {isOpen ? (
+              <svg
+                className="w-8 h-8"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            ) : (
+              <svg
+                className="w-8 h-8"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16m-7 6h7"
+                />
+              </svg>
+            )}
+          </button>
+          <div
+            ref={navbarRef}
+            className={`${
+              isOpen ? "right-0" : "-right-full"
+            } fixed top-0 bottom-0 w-[75%] bg-burgundy-100/90 p-5 transition-all duration-300 ease-in-out z-40 md:static md:w-auto md:bg-transparent md:p-0 md:z-auto`}
+          >
+            <ul className="flex flex-col md:flex-row text-white md:text-lg font-inter">
+              {menuItems.map((item, index) => (
+                <li
+                  key={index}
+                  className="my-2 md:mx-4 hover:border-b border-white transition-transform ease-in-out delay-1000 duration-1000"
+                >
+                  <Link to={item.href}>{item.name}</Link>
+                </li>
+              ))}
+
+              {dropdownItems.map((dropItem, dropIndex) => (
+                <li key={`mobile-${dropIndex}`} className="md:hidden my-2">
+                  <Link to={dropItem.href}>{dropItem.name}</Link>
+                </li>
+              ))}
+
+              <li className="hidden md:block my-2 md:mx-4 relative">
+                <button
+                  onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                  className="flex items-center"
+                >
+                  <svg
+                    className="w-8 h-8"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M19 9l-7 7-7-7"
+                    ></path>
+                  </svg>
                 </button>
-                <div className="hidden w-full md:block md:w-auto" id="navbar-multi-level">
-                    <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-                        <li>
-                            <a href="#" className="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500 dark:bg-blue-600 md:dark:bg-transparent" aria-current="page">Home</a>
-                        </li>
-                        <li>
-                            <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar" className="flex items-center justify-between w-full py-2 px-3 text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:hover:bg-gray-700 md:dark:hover:bg-transparent">Dropdown <svg className="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4" />
-                            </svg>
-                            </button>
-
-                            <div id="dropdownNavbar" className="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
-                                <ul className="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownLargeButton">
-                                    <li>
-                                        <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
-                                    </li>
-                                    <li aria-labelledby="dropdownNavbarLink">
-                                        <button id="doubleDropdownButton" data-dropdown-toggle="doubleDropdown" data-dropdown-placement="right-start" type="button" className="flex items-center justify-between w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dropdown<svg className="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                                            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4" />
-                                        </svg></button>
-                                        <div id="doubleDropdown" className="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
-                                            <ul className="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="doubleDropdownButton">
-                                                <li>
-                                                    <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Overview</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">My downloads</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Billing</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Rewards</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
-                                    </li>
-                                </ul>
-                                <div className="py-1">
-                                    <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</a>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <a href="#" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Services</a>
-                        </li>
-                        <li>
-                            <a href="#" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Pricing</a>
-                        </li>
-                        <li>
-                            <a href="#" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Contact</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
-    );
+                {isDropdownOpen && (
+                  <ul className="absolute right-0 text-center bg-white text-graywhite-600 mt-2 rounded-xl shadow-lg w-40 h-30">
+                    {dropdownItems.map((dropItem, dropIndex) => (
+                      <li key={dropIndex} className="px-4 py-2">
+                        <Link to={dropItem.href}>{dropItem.name}</Link>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </>
+  );
 };
 
 export default Navbar;

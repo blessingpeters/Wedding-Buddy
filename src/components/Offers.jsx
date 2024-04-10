@@ -1,11 +1,11 @@
 const Offers = () => {
   return (
-    <section className="pt-10 lg:px-24 md:px-10 max-md:px-3 flex flex-col">
+    <section className="pt-10 lg:px-24 md:px-10 px-3 flex flex-col">
       <div className="pb-10 text-center">
-        <h2 className="text-3xl font-semibold text-graywhite-600">
+        <h2 className="md:text-4xl text-2xl font-raleway font-semibold text-graywhite-600">
           Fuss-free destination wedding planning starts here
         </h2>
-        <p className="w-[80%] mt-5 mx-auto text-lg font-lato text-graywhite-400">
+        <p className="md:w-[80%] mt-5 mx-auto md:text-xl text-lg font-lato text-graywhite-400">
           Simple wedding planning to help you stay on track and plan that dream
           wedding <br /> Discover your destination wedding vendors, everything from
           your wedding venue, photographers & videographers, wedding planners to
@@ -14,7 +14,7 @@ const Offers = () => {
       </div>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 text-left pb-10 w-full gap-8">
-        {trendingPodcast.map((podDetail, index) => (
+        {offers.map((podDetail, index) => (
           <div
             className={`h-96 relative rounded-2xl shadow-sm border`}
             key={index}
@@ -36,7 +36,7 @@ const Offers = () => {
     </section>
   );
 };
-const trendingPodcast = [
+const offers = [
   {
     title: "Bridal Wear",
     desc: "Discover talented seamstresses and boutique stores that have your perfect wedding gown.",
