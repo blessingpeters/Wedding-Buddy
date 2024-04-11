@@ -1,25 +1,18 @@
-
 import Navbar from "../navs/Navbar";
 import WbButton from "../common/WbButton";
 
 const AboutHeader = () => {
   return (
-    <section className="hero-section h-full  font-raleway w-full">
+    <section className="about-hero relative h-[95vh] font-raleway">
       <Navbar />
-        <div className="md:py-44 py-28">
+        <div className="pt-48">
 
+            <div className="absolute left-4 sm:left-20 sm:bottom-20 sm:w-max w-11/12 p-10 sm:p-16 rounded-2xl text-left backdrop-blur-0 bg-burgundy-100/50 text-white">
 
-        <div className="sm:w-max w-11/12 lg:my-10 mx-auto px-4  py-12 md:p-10 rounded-2xl text-center text-white">
-            <h1 className="mb-5 lg:text-6xl text-4xl font-bold">
-            Plan The Perfect Wedding
-            </h1>
-            <p className="mb-5 lg:text-4xl text-xl">
-            Connecting Couples to the right <br className="hidden md:block" /> Vendors
-            </p>
-            <WbButton text="Create New Item" size="normal" />
-
-        </div>
-
+                <h1 className="lg:text-6xl text-4xl font-bold leading-relaxed">
+                    WELCOME TO <br /> WEDDING BUDDY
+                </h1>
+            </div>
       </div>
     </section>
   );

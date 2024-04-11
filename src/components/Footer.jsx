@@ -13,8 +13,8 @@ const Footer = () => {
                         </p>
                     </div>
                     <div className=" bg-burgundy-100/40 relative flex rounded w-full md:w-[417px]">
-                        <input className="bg-transparent p-4 w-full" type="text" name="Email" id="email" placeholder="Email" />
-                        <button className=" absolute right-0 px-6 py-4 bg-burgundy-100 rounded-md">send</button>
+                        <input className="bg-transparent outline-none p-4 w-full font-lato placeholder:text-white" type="text" name="Email" id="email" placeholder="Email" />
+                        <button className=" absolute right-0 px-6 py-4 bg-burgundy-100 rounded-md">Send</button>
                     </div>
                 </div>
 

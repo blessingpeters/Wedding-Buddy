@@ -25,10 +25,9 @@ function App() {
           <Route path="login" element={<Login />} />
           <Route path="signup" element={<Signup/>} />
         </Route>
-        <Route path="/buyer" element={<DashboardLayout />}>
+        <Route path="/your" element={<DashboardLayout />}>
           <Route index element={<CoupleDashboard/>} />
           <Route index element={<VendorDashboard/>} />
-
         </Route>
       </Routes>
     </div>

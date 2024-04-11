@@ -18,11 +18,21 @@
 .hero-section{
     background: url(/assets/images/Wedding-image.png) no-repeat center;
     background-size: cover;
-    object-fit: scale-down;
+    /* object-fit: scale-down; */
 }
-@media screen and (max-width: 768px) {
+.service-hero{
+    background: url(/assets/images/service.png) no-repeat center;
+    background-size: cover;
+    /* object-fit: scale-down; */
+}
+.about-hero{
+    background: url(/assets/images/about.png) no-repeat center;
+    background-size: cover;
+}
+
+/* @media screen and (max-width: 768px) {
     .hero-section{
         background-size: auto 100%;
     }
-}
+} */
 

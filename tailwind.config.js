@@ -1,8 +1,8 @@
 /* eslint-disable no-undef */
 /** @type {import('tailwindcss').Config} */
 
-const withMT = require("@material-tailwind/react/utils/withMT");
-export default withMT({
+
+export default {
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
@@ -18,7 +18,11 @@ export default withMT({
         burgundy:{
           50: "#50112E66",
           100: "#50112E",
+          200: "#571332",
           500: "#7A1A46",
+        },
+        gold:{
+          100: "#CC9900"
         },
         graywhite:{
           200: "#DBDBDB",
@@ -36,5 +40,5 @@ export default withMT({
   plugins: [],
 
 
-})
+}
 

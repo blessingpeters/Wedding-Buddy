@@ -2,32 +2,29 @@
 import Navbar from "../navs/Navbar";
 
 const ServiceHeader = () => {
-  return (
-    <section className="hero-section h-full  font-raleway w-full">
-      <Navbar />
-        <div className="md:py-44 py-28">
+    return (
+        <section className="service-hero h-full  font-raleway w-full">
+            <Navbar />
+            <div className="py-28 max-w-screen-2xl mx-auto">
 
 
-        <div className="sm:w-max w-11/12 lg:my-10 mx-auto px-4  py-12 md:p-10 rounded-2xl text-center text-white">
-            <h1 className="mb-5 lg:text-6xl text-4xl font-bold">
-            Plan The Perfect Wedding
-            </h1>
-            <p className="mb-5 lg:text-4xl text-xl">
-            Connecting Couples to the right <br className="hidden md:block" /> Vendors
-            </p>
-            <div className="mt-4 md:mb-20 ">
-            <button className="px-6 py-4 bg-burgundy-100 rounded-md my-4 mx-4 hover:bg-burgundy-50">
-                Become a Vendor
-            </button>
-            <button className="px-9 py-4 border border-burgundy-100 rounded-md">
-                Vendor Login
-            </button>
+                <div className="w-11/12 lg:my-10 mx-auto rounded-2xl flex flex-col items-center text-center text-white">
+                    <h1 className="lg:text-7xl text-4xl font-bold lg:px-10">
+                        Want to plan a wedding and not sure how?
+                    </h1>
+                    <p className="my-10 lg:text-4xl text-xl">
+                        Explore our various services
+                    </p>
+                    <div className="bg-burgundy-100/40 relative flex items-center rounded-2xl w-full md:w-[572px]">
+                        <input className="bg-transparent outline-none sm:text-lg text-sm font-lato p-4 w-full" type="text" name="search" id="email" placeholder="Search for Wedding Services needed" />
+
+                        <img className=" pr-4 absolute right-0" src="/assets/icons/search.svg" alt="search icon" />
+                    </div>
+                </div>
+
             </div>
-        </div>
-
-      </div>
-    </section>
-  );
+        </section>
+    );
 };
 
 export default ServiceHeader;
