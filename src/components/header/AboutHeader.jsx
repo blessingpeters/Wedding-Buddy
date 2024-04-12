@@ -1,5 +1,4 @@
 import Navbar from "../navs/Navbar";
-import WbButton from "../common/WbButton";
 
 const AboutHeader = () => {
   return (

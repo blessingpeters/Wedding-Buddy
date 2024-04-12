@@ -30,6 +30,19 @@
     background-size: cover;
 }
 
+.about-bg{
+    background: url(/assets/images/couple-hands.png) no-repeat top center;
+}
+
+.aboutbg2{
+    background: url(/assets/images/glassesbg1.svg) no-repeat left;
+}
+
+.about-bg3{
+    background: url(/assets/images/glassesbg2.svg) no-repeat top center;
+}
+
+
 /* @media screen and (max-width: 768px) {
     .hero-section{
         background-size: auto 100%;

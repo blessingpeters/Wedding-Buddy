@@ -4,6 +4,8 @@ import AuthLayout from './components/layouts/Layout';
 import DashboardLayout from './components/layouts/Layout';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
+import VendorsPage from './pages/VendorsPage';
+import ContactPage from './pages/ContactPage';
 import NotFoundPage from './pages/NotFoundPage';
 import Services from './pages/Services';
 import Login from './pages/auth/Login';
@@ -19,6 +21,9 @@ function App() {
           <Route index element={<HomePage />} />
           <Route path="about" element={<AboutPage />} />
           <Route path="services" element={<Services />} />
+          <Route path="vendors" element={<VendorsPage />} />
+          <Route path="contact" element={<ContactPage />} />
+
           <Route path="*" element={<NotFoundPage />} />
         </Route>
         <Route path="/" element={<AuthLayout />}>
