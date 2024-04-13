@@ -115,7 +115,7 @@ const Navbar = () => {
               {menuItems.map((item, index) => (
                 <li
                   key={index}
-                  className="my-2 md:mx-8 hover:border-b border-white text-xl"
+                  className="my-2 md:mx-4 lg:mx-8 hover:border-b border-white text-xl"
                 >
                   <Link to={item.href}>{item.name}</Link>
                 </li>

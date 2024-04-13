@@ -15,7 +15,7 @@ const VendorsHeader = () => {
                     <p className="text-center my-5 lg:text-3xl text-xl">
                         Discover the Pros  for any budget,<br className="hidden md:block" /> background and style
                     </p>
-                    <div className="my-4 flex w-3/4 mx-auto gap-4 justify-center font-lato">
+                    <div className="my-4 flex md:w-3/4 mx-auto gap-4 justify-center font-lato">
                         <div className="w-full border border-burgundy-100 rounded-2xl px-3 relative">
                             <label className="absolute left-5 top-1 text-[#AFABAB] text-xs" htmlFor="budget">budget</label>
                             <select
@@ -38,7 +38,7 @@ const VendorsHeader = () => {
                             </select>
                         </div>
                     </div>
-                    <div className="mt-10 w-3/4 mx-auto">
+                    <div className="mt-10 md:w-3/4 mx-auto">
 
                         <WbButton className="w-full" text="Search" size="normal" />
                     </div>
