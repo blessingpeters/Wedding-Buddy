@@ -43,12 +43,12 @@ const ContactPage = () => {
         <div className="bg-white sm:pl-5 lg:pl-10 sm:gap-6 shadow-xl flex flex-col sm:flex-row">
           <div className=" basis-1/2 flex flex-col items-end">
             <form
-              className=" lg:w-11/12 sm:px-6 px-3 pb-10 max-sm:mx-3 my-10  md:my-20 font-inter bg-[#DDCCCC] rounded-2xl shadow-xl"
+              className=" lg:w-11/12 sm:px-6 px-3 py-10 max-sm:mx-3 my-10  md:my-20 font-inter bg-[#DDCCCC] rounded-2xl shadow-xl"
               action=""
             >
-              <div className="flex justify-center items-center gap-3 md:gap-6 py-6">
+              <div className="flex  items-center gap-3 md:gap-6">
                 <img
-                  className="h-28 border-r-2 border-burgundy-100 "
+                  className="h-28 px-12 border-r-4 border-burgundy-100 "
                   src="/assets/images/wblogo.svg"
                   alt=""
                 />
@@ -60,7 +60,7 @@ const ContactPage = () => {
 
               <div className="w-full my-6">
                 <label className="text-graywhite-400" htmlFor="email">
-                  Email
+                Email Address
                 </label>{" "}
                 <br />
                 <input
