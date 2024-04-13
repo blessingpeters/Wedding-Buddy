@@ -31,9 +31,19 @@ export default {
         }
       },
       boxShadow:{
+        "2.5xl": "0px 0px 56px 0px rgba(0, 0, 0, 1)",
         '3xl': "0px 0px 22px -10px rgba(0,0,0,1)",
 
+      },
+      backgroundSize: {
+        '50%': '50%',
+        '16': '4rem',
+      },
+      borderRadius: {
+        '4xl': '28px',
+        '5xl': '32px',
       }
+
     },
   },
 

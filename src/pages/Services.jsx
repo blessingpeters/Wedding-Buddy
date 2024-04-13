@@ -6,7 +6,7 @@ function Services() {
     <>
       <ServiceHeader />
       <ServiceCards />
-      <section className=" bg-gradient-to-br from-burgundy-100 to-burgundy-200 text-white font-raleway pt-10 lg:px-24 md:px-10 px-3">
+      <section className=" bg-gradient-to-br from-burgundy-100 to-burgundy-200 text-white font-raleway pt-10 lg:px-20 md:px-10 px-3">
         <div className="pb-10 text-center px-3 lg:w-4/6 mx-auto">
           <h3 className="text-gold-100 md:text-4xl text-2xl font-semibold">
             Customized Packages

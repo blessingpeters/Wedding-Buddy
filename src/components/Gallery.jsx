@@ -1,6 +1,6 @@
 const Gallery = () => {
     return (
-      <section className="py-10 pb-16 lg:px-24 md:px-10 px-3 flex flex-col">
+      <section className="py-10 pb-16 lg:px-20 md:px-10 px-3 flex flex-col">
         <div className="pb-10 text-center">
           <h2 className="md:text-4xl text-2xl font-raleway font-semibold text-graywhite-600">
           Our Featured Wedding Photos/Gallery

@@ -5,7 +5,7 @@ function AboutPage() {
   return (
     <>
       <AboutHeader />
-      <section className="py-10 lg:px-24 md:px-10 px-3 flex flex-col text-center max-w-screen-2xl mx-auto font-raleway">
+      <section className="py-10 lg:px-20 md:px-10 px-3 flex flex-col text-center font-raleway">
         <h2 className="pb-8  md:text-5xl text-2xl font-bold text-graywhite-600">
           ABOUT US
         </h2>
@@ -37,9 +37,9 @@ function AboutPage() {
         </div>
       </section>
       <section className="md:bg-[url(/assets/images/glassesbg1.svg)] bg-no-repeat font-raleway">
-        <img src="/assets/images/couple-hands.png" alt="" />
+        <img className="w-full" src="/assets/images/couple-hands.png" alt="" />
 
-        <div className="py-10 lg:px-24 md:px-10 px-3 text-center about-bg3">
+        <div className="py-10 lg:px-20 md:px-10 px-3 text-center about-bg3">
           <h2 className="pb-8  md:text-5xl text-2xl font-bold text-graywhite-600">
             OUR MISSION
           </h2>
@@ -70,9 +70,9 @@ function AboutPage() {
             </p>
           </div>
         </div>
-        <img className="" src="/assets/images/event-venue.png" alt="" />
+        <img className="w-full" src="/assets/images/event-venue.png" alt="" />
 
-        <div className="pt-10 lg:px-24 md:px-10 px-3 text-center">
+        <div className="pt-10 lg:px-20 md:px-10 px-3 text-center">
           <h2 className="pb-8  md:text-5xl text-2xl font-bold text-graywhite-600">
             OUR VISION
           </h2>
@@ -116,7 +116,7 @@ function AboutPage() {
 
         </div>
       </section>
-      <img className="mb-24" src="/assets/images/bridesmaid.png" alt="brides maid" />
+      <img className="mb-24 w-full" src="/assets/images/bridesmaid.png" alt="brides maid" />
 
     </>
   );

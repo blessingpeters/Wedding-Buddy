@@ -1,6 +1,6 @@
 const Offers = () => {
   return (
-    <section className="pt-10 lg:px-24 md:px-10 px-3 flex flex-col">
+    <section className="pt-10 lg:px-20  md:px-10 px-3 flex flex-col">
       <div className="pb-10 text-center">
         <h2 className="md:text-4xl text-2xl font-raleway font-semibold text-graywhite-600">
           Fuss-free destination wedding planning starts here
@@ -14,20 +14,20 @@ const Offers = () => {
       </div>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 text-left pb-10 w-full gap-8">
-        {offers.map((podDetail, index) => (
+        {offers.map((offer, index) => (
           <div
             className={`h-96 relative rounded-2xl shadow-sm border`}
             key={index}
           >
             <img
               className="h-[65%] w-full object-cover rounded-t-2xl"
-              src={podDetail.img}
+              src={offer.img}
               alt="check circle"
             />
             <div className="w-full justify-between py-3 px-5">
-              <h2 className="text-lg text-[#454545]">{podDetail.title}</h2>
+              <h2 className="text-lg text-[#454545]">{offer.title}</h2>
               <h3 className="text-sm text-[#777777] mb-2 mt-1">
-                {podDetail.desc}
+                {offer.desc}
               </h3>
             </div>
           </div>

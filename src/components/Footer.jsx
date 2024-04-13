@@ -3,8 +3,11 @@ import React from "react";
 const Footer = () => {
     return (
         <>
-        <section className="bg-burgundy-500 text-white font-raleway pt-10 lg:px-24 md:px-10 px-3">
-            <div className="flex justify-between items-center flex-wrap gap-10">
+        <section className="bg-burgundy-500 text-white font-raleway pt-10 lg:px-20 md:px-10 px-3 ">
+            <div className="max-w-screen-2xl mx-auto">
+
+
+            <div className="flex justify-between items-center flex-wrap gap-10 ">
                 <div className="flex flex-wrap justify-between items-center gap-10">
                     <div>
                         <h4 className="font-semibold text-2xl">NEWSLETTER SUBSCRIBE</h4>
@@ -35,7 +38,7 @@ const Footer = () => {
             </div>
             <div className="flex lg:gap-32 md:gap-20 gap-10 items-center flex-wrap">
                 <a href="#" className="flex items-center">
-                    <img className="w-full" src="assets/images/wblogo2.png" alt="Wedding buddy Logo" />
+                    <img className="w-full" src="/assets/images/wblogo2.png" alt="Wedding buddy Logo" />
                 </a>
                 <div className="space-y-3">
                     <h4 className="font-semibold text-2xl font-raleway">PHONE AND EMAIL</h4>
@@ -54,6 +57,7 @@ const Footer = () => {
 
                 </div>
 
+            </div>
             </div>
         </section>
          <footer className="bg-burgundy-500 border-t border-black text-white text-center">

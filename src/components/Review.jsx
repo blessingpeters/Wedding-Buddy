@@ -34,8 +34,8 @@ const Review = () => {
   };
 
   return (
-    <section className="pt-20 md:px-10 px-3 flex flex-col">
-      <div className="bg-[#FAF9F9] py-10 text-center flex flex-col items-center">
+
+      <section className="bg-[#FAF9F9] py-10 text-center flex flex-col items-center">
         <h1 className="text-center font-raleway pb-6 text-2xl md:text-4xl text-gray-600 font-semibold">
           What our Clients are Saying
         </h1>
@@ -102,7 +102,7 @@ const Review = () => {
             ></button>
 ))}
         </div>
-      </div>
+
     </section>
   );
 };

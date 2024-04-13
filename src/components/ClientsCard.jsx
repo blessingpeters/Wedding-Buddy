@@ -2,7 +2,7 @@
 
 const ClientsCards = () => {
     return (
-      <section className="flex flex-col max-w-screen-2xl mx-auto font-raleway ">
+      <section className="flex flex-col font-raleway ">
         <div className="">
           {ourServices.map((service, index) =>(
               <div key={index} className="flex flex-col justify-between sm:flex-row gap-5 sm:py-16  sm:px-12 p-4 sm:odd:pr-0 sm:even:pl-0 text-gold-100 even:text-burgundy-100 bg-white even:bg-gold-100/20 sm:even:flex-row-reverse">

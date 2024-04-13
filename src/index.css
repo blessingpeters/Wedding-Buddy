@@ -16,7 +16,7 @@
 /* @apply max-w-screen-2xl mx-auto */
 
 .hero-section{
-    background: url(/assets/images/Wedding-image.png) no-repeat center;
+    background: url(/assets/images/landing-photo.webp) no-repeat center;
     background-size: cover;
     /* object-fit: scale-down; */
 }
@@ -40,6 +40,11 @@
 
 .about-bg3{
     background: url(/assets/images/glassesbg2.svg) no-repeat top center;
+}
+.gradient{
+    background: linear-gradient(90deg, rgba(80,17,46,0.8) 36%, rgba(102,19,109,0.4) 49%, rgba(80,17,46,1) 64%, rgba(255,255,255,1) 100%),  no-repeat;
+    background-clip: text;
+    color: transparent;
 }
 
 

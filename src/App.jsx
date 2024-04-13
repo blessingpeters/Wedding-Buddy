@@ -5,6 +5,7 @@ import DashboardLayout from './components/layouts/Layout';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import VendorsPage from './pages/VendorsPage';
+import VendorListingsPage from './pages/VendorListingsPage';
 import ContactPage from './pages/ContactPage';
 import NotFoundPage from './pages/NotFoundPage';
 import Services from './pages/Services';
@@ -12,6 +13,7 @@ import Login from './pages/auth/Login';
 import Signup from './pages/auth/Login';
 import CoupleDashboard from './pages/your/CoupleDashboard';
 import VendorDashboard from './pages/your/CoupleDashboard';
+import VendorDetailPage from './pages/VendorDetailPage';
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
           <Route path="about" element={<AboutPage />} />
           <Route path="services" element={<Services />} />
           <Route path="vendors" element={<VendorsPage />} />
+          <Route path="vendors/:vendorListings" element={<VendorListingsPage />} />
+          <Route path="vendors/:vendorListings/:vendorId" element={<VendorDetailPage />} />
           <Route path="contact" element={<ContactPage />} />
 
           <Route path="*" element={<NotFoundPage />} />

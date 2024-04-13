@@ -2,7 +2,7 @@
 
 const ServiceCards = () => {
   return (
-    <section className="pt-10 flex flex-col max-w-screen-2xl mx-auto font-raleway bg-[#0000000D]">
+    <section className="pt-10 flex flex-col font-raleway bg-[#0000000D]">
       <h2 className="pb-14 text-center md:text-5xl text-2xl font-bold text-graywhite-600">
         Our Services
       </h2>
@@ -14,7 +14,7 @@ const ServiceCards = () => {
                     <p className="text-graywhite-400 lg:text-3xl text-xl font-medium">{service.text}</p>
                 </div>
                 <div className="md:h-[590px] basis-1/2">
-                    <img className="h-full object-cover rounded-2xl" src={service.image} alt="service image" />
+                    <img className="h-full w-full object-cover rounded-2xl" src={service.image} alt="service image" />
                 </div>
 
             </div>

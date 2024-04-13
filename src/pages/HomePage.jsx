@@ -93,7 +93,10 @@ function HomePage() {
           <WbButton className='w-full' text='Send' />
         </form>
       </section>
-      <Review />
+      <section className="pt-16 lg:px-20 md:px-10 px-3 ">
+        <Review />
+      </section>
+
     </>
   );
 }
