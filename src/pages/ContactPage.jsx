@@ -46,9 +46,9 @@ const ContactPage = () => {
               className=" lg:w-11/12 sm:px-6 px-3 py-10 max-sm:mx-3 my-10  md:my-20 font-inter bg-[#DDCCCC] rounded-2xl shadow-xl"
               action=""
             >
-              <div className="flex  items-center gap-3 md:gap-6">
+              <div className="flex items-center gap-3 md:gap-6">
                 <img
-                  className="h-28 px-12 border-r-4 border-burgundy-100 "
+                  className="h-28 lg:px-12 border-r-4 border-burgundy-100 "
                   src="/assets/images/wblogo.svg"
                   alt=""
                 />
