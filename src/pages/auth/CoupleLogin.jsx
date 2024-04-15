@@ -15,6 +15,7 @@ const CoupleLogin = () => {
                 <h2 className="text-center font-raleway text-2xl text-burgundy-100 font-semibold mb-10">Login to book vendors and their services</h2>
 
                 <Login userType="couple" />
+                
                 <p className="text-center font-lato text-sm text-graywhite-400">Don’t have an account? <a className="text-burgundy-100" href="/coupleSignup">Sign up</a> </p>
 
 

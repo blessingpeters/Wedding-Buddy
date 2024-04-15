@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 const WbButton = ({ text, size = 'normal', variant = 'filled', className, onClick }) => {
     let baseClasses = variant === 'filled'
-    ? "bg-burgundy-100 text-white border border-burgundy-100  hover:bg-burgundy-50"
+    ? "bg-burgundy-100 text-white border border-burgundy-100  hover:bg-burgundy-200"
     : "text-burgundy-100 border border-burgundy-100";
 
     let sizeClasses = {
