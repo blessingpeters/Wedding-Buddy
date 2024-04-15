@@ -31,9 +31,17 @@ const Navbar = () => {
   ];
 
   const dropdownItems = [
-    { name: "Vendor’s Login", href: "/" },
-    { name: "Couple’s Login", href: "#" },
-    { name: "My Account", href: "#" },
+    {
+      name: "Vendor’s Login",
+      href: "/vendorLogin"
+    },
+    {
+      name: "Couple’s Login",
+      href: "/coupleLogin" },
+    {
+      name: "My Account",
+      href: "#"
+    },
   ];
   const toggleSidebar = () => setIsOpen(!isOpen);
   useEffect(() => {

@@ -34,7 +34,6 @@ const Review = () => {
   };
 
   return (
-
       <section className="bg-[#FAF9F9] py-10 text-center flex flex-col items-center">
         <h1 className="text-center font-raleway pb-6 text-2xl md:text-4xl text-gray-600 font-semibold">
           What our Clients are Saying

@@ -1,7 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-import Layout from './components/layouts/Layout';
-import AuthLayout from './components/layouts/Layout';
-import DashboardLayout from './components/layouts/Layout';
+import {Layout, AuthLayout, DashboardLayout} from './components/layouts/Layout';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import VendorsPage from './pages/VendorsPage';
@@ -9,8 +7,10 @@ import VendorListingsPage from './pages/VendorListingsPage';
 import ContactPage from './pages/ContactPage';
 import NotFoundPage from './pages/NotFoundPage';
 import Services from './pages/Services';
-import Login from './pages/auth/Login';
-import Signup from './pages/auth/Login';
+import VendorLogin from './pages/auth/VendorLogin';
+import CoupleLogin from './pages/auth/CoupleLogin';
+import VendorSignup from './pages/auth/VendorSignUp';
+import CoupleSignup from './pages/auth/CoupleSignUp';
 import CoupleDashboard from './pages/your/CoupleDashboard';
 import VendorDashboard from './pages/your/CoupleDashboard';
 import VendorDetailPage from './pages/VendorDetailPage';
@@ -27,16 +27,18 @@ function App() {
           <Route path="vendors/:vendorListings" element={<VendorListingsPage />} />
           <Route path="vendors/:vendorListings/:vendorId" element={<VendorDetailPage />} />
           <Route path="contact" element={<ContactPage />} />
-
           <Route path="*" element={<NotFoundPage />} />
         </Route>
+
         <Route path="/" element={<AuthLayout />}>
-          <Route path="login" element={<Login />} />
-          <Route path="signup" element={<Signup/>} />
+          <Route path="vendorLogin" element={<VendorLogin />} />
+          <Route path="coupleLogin" element={<CoupleLogin />} />
+          <Route path="vendorSignup" element={<VendorSignup/>} />
+          <Route path="coupleSignup" element={<CoupleSignup/>} />
         </Route>
         <Route path="/your" element={<DashboardLayout />}>
-          <Route index element={<CoupleDashboard/>} />
-          <Route index element={<VendorDashboard/>} />
+          <Route index element={<CoupleDashboard />} />
+          <Route path="vendor" element={<VendorDashboard />} />
         </Route>
       </Routes>
     </div>

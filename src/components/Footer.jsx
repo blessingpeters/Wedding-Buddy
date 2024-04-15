@@ -3,7 +3,7 @@ import React from "react";
 const Footer = () => {
     return (
         <>
-        <section className="bg-burgundy-500 text-white font-raleway pt-10 lg:px-20 md:px-10 px-3 ">
+        <section className="bg-burgundy-500 text-white font-raleway pt-14 lg:px-20 sm:px-10 px-3 ">
             <div className="max-w-screen-2xl mx-auto">
 
 
@@ -36,16 +36,16 @@ const Footer = () => {
                     </a>
                 </div>
             </div>
-            <div className="flex lg:gap-32 md:gap-20 gap-10 items-center flex-wrap">
-                <a href="#" className="flex items-center">
-                    <img className="w-full" src="/assets/images/wblogo2.png" alt="Wedding buddy Logo" />
+            <div className="flex md:mt-32 mt-10 md:pb-10 lg:gap-40 md:gap-20 gap-10  flex-wrap">
+                <a href="#" className="">
+                    <img className="w-full h-36" src="/assets/images/wblogoedit.png" alt="Wedding buddy Logo" />
                 </a>
                 <div className="space-y-3">
                     <h4 className="font-semibold text-2xl font-raleway">PHONE AND EMAIL</h4>
                     <p className="font-lato">hello@weddingbuddy.com</p>
                     <p className="font-lato">+234 9039 446 987</p>
                 </div>
-                <div className="md:mt-24 space-y-3">
+                <div className="space-y-3">
                     <h4 className="font-semibold text-2xl font-raleway">PAGES</h4>
                     <a className="block font-lato" href="#">Home</a>
                     <a className="block font-lato" href="#">Services</a>

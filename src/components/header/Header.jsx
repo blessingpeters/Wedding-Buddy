@@ -1,7 +1,9 @@
 import Navbar from "../navs/Navbar";
 import WbButton from "../common/WbButton";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const navigate = useNavigate()
   return (
     <section className="hero-section h-full  font-raleway w-full">
       <Navbar />
@@ -22,8 +24,8 @@ const Header = () => {
             {/* <button className="px-9 my-4 mx-4 py-4 border border-burgundy-100 rounded-md">
                 Vendor Login
             </button> */}
-            <WbButton className="max-sm:mb-4" text="Become a Vendor" />
-            <WbButton className="mx-4" text="Couple's SignUp" variant="outline" />
+            <WbButton className="max-sm:mb-4" text="Become a Vendor" onClick={()=> navigate("/VendorSignup")} />
+            <WbButton className="mx-4" text="Couple's SignUp" variant="outline" onClick={()=> navigate("/CoupleSignup")} />
             </div>
         </div>
 
