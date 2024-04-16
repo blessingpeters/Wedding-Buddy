@@ -1,6 +1,9 @@
 import { useState } from "react";
 import WbButton from "../../components/common/WbButton";
+import { useNavigate } from "react-router-dom";
+
 const VendorSignUp = () => {
+  const navigate = useNavigate()
   const [showPassword, setShowPassword] = useState({ password: false, confirmPassword: false })
   const togglePassword = (field) => {
     setShowPassword(prev => ({ ...prev, [field]: !prev[field] }));
@@ -11,6 +14,7 @@ const VendorSignUp = () => {
       <div className=" lg:w-2/5 sm:w-9/12 w-11/12 mx-auto  font-inter bg-[#DDCCCC] rounded-2xl shadow-2.5xl shadow-[#00000026] sm:px-6 px-3 py-10">
         <div className="flex justify-center items-center divide-burgundy-200 divide-x-4">
           <img
+            onClick={()=> navigate("/")}
             className="h-28 w-24 py-4 mx-auto"
             src="/assets/images/wblogoedit.png"
             alt=""
@@ -22,7 +26,7 @@ const VendorSignUp = () => {
 
         <form>
           <div className="w-full my-6">
-            <label className="text-graywhite-400" htmlFor="email">
+            <label className="text-graywhite-600" htmlFor="email">
               Company Name
             </label>{" "}
             <br />
@@ -36,7 +40,7 @@ const VendorSignUp = () => {
           </div>
           <div className="w-full my-6">
             <label
-              className="text-graywhite-400" htmlFor="category" >
+              className="text-graywhite-600" htmlFor="category" >
               Category
             </label>
             <select
@@ -50,7 +54,7 @@ const VendorSignUp = () => {
             </select>
           </div>
           <div className="w-full my-6">
-            <label className="text-graywhite-400" htmlFor="email">
+            <label className="text-graywhite-600" htmlFor="email">
               Full Name
             </label>{" "}
             <br />
@@ -63,7 +67,7 @@ const VendorSignUp = () => {
             />{" "}
           </div>
           <div className="w-full my-6">
-            <label className="text-graywhite-400" htmlFor="email">
+            <label className="text-graywhite-600" htmlFor="email">
               Company Email
             </label>{" "}
             <br />
@@ -75,7 +79,7 @@ const VendorSignUp = () => {
               placeholder="Enter your company email address"
             />{" "}
           </div> <div className="w-full my-6">
-            <label className="text-graywhite-400" htmlFor="email">
+            <label className="text-graywhite-600" htmlFor="email">
               Business Registration Number
             </label>{" "}
             <br />
@@ -90,7 +94,7 @@ const VendorSignUp = () => {
           </div>
           <div className="w-full my-6">
             <label
-              className="text-graywhite-400" htmlFor="category" >
+              className="text-graywhite-600" htmlFor="category" >
               Country
             </label>
             <select
@@ -104,7 +108,7 @@ const VendorSignUp = () => {
             </select>
           </div>
           <div className="w-full my-6">
-            <label className="text-graywhite-400" htmlFor="email">
+            <label className="text-graywhite-600" htmlFor="email">
               Addreess
             </label>{" "}
             <br />
@@ -116,7 +120,7 @@ const VendorSignUp = () => {
               placeholder="City, Street Number"
             />{" "}
           </div> <div className="w-full my-6">
-            <label className="text-graywhite-400" htmlFor="email">
+            <label className="text-graywhite-600" htmlFor="email">
               Phone Number
             </label>{" "}
             <br />
@@ -130,7 +134,7 @@ const VendorSignUp = () => {
           </div>
 
           <div className="my-6">
-            <label className="text-graywhite-400" htmlFor="message">
+            <label className="text-graywhite-600" htmlFor="message">
               Password
             </label>
             <div className="relative">
@@ -150,7 +154,7 @@ const VendorSignUp = () => {
             </div>
           </div>
           <div className="my-6">
-            <label className="text-graywhite-400" htmlFor="message">
+            <label className="text-graywhite-600" htmlFor="message">
               Confirm Password
             </label>
             <div className="relative">
@@ -171,7 +175,7 @@ const VendorSignUp = () => {
 
           </div>
           <WbButton className="w-full mt-8 mb-2" size="normal" text="Submit" />
-          <p className="text-center font-lato text-sm text-graywhite-400">Already have an account?<a className="text-burgundy-100" href="/vendorLogin">Sign in</a> </p>
+          <p className="text-center font-lato text-sm text-graywhite-400">Already have an account?<a className="text-burgundy-100" href="/vendorLogin"> Sign in</a> </p>
         </form>
       </div>
     </section>

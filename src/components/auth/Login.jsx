@@ -1,7 +1,9 @@
 /* eslint-disable react/prop-types */
+import { useState } from "react";
 import WbButton from "../common/WbButton";
 
 const Login = ({ userType }) => {
+  const [showPassword, setShowPassword] = useState(false)
   // const [username, setUsername] = useState('');
   // const [password, setPassword] = useState('');
 
@@ -26,40 +28,43 @@ const Login = ({ userType }) => {
   return (
     <form>
       <div className="w-full my-6">
-        <label className="text-graywhite-400" htmlFor="email">
+        <label className="text-graywhite-600" htmlFor="email">
           {userType === "vendor" ? "Company" : ""} Email Address
         </label>{" "}
         <br />
         <input
-          className="w-full border border-graywhite-400 outline-none rounded-md bg-transparent p-4 text-sm placeholder:text-graywhite-400"
+          className={`w-full border border-graywhite-400 outline-none rounded-md bg-transparent ${
+            userType === "vendor" ? "p-4" : "p-6"} text-sm placeholder:text-graywhite-400`}
           type="text"
           name="name"
           id="email"
           placeholder={`Enter your ${
             userType === "vendor" ? "company" : ""
           } email address`}
-        />{" "}
+        />
       </div>
 
       <div className="my-6">
-        <label className="text-graywhite-400" htmlFor="message">
+        <label className="text-graywhite-600" htmlFor="message">
           Password
         </label>
         <div className="relative">
           <input
-            className="w-full border border-graywhite-400 outline-none rounded-md bg-transparent p-4 text-sm placeholder:text-graywhite-400"
-            type="text"
-            name="name"
-            id="email"
+            className={`w-full border border-graywhite-400 outline-none rounded-md bg-transparent ${
+              userType === "vendor" ? "p-4" : "p-6"} text-sm placeholder:text-graywhite-400`}
+            type={showPassword ? 'text' : 'password'}
+            name="password"
+            id="password"
             placeholder="Enter password"
-          />{" "}
+          />
           <img
+            onClick={()=> setShowPassword(!showPassword)}
             className="absolute right-4 bottom-4 cursor-pointer"
             src="/assets/icons/eyeslash.svg"
             alt="eye slash icon"
           />
         </div>
-        <p className="text-burgundy-100 text-sm font-lato">Forgot Password?</p>
+        <a href="#"><p className="mt-1 text-burgundy-100 text-sm font-lato">Forgot Password?</p></a>
       </div>
       <WbButton className="w-full mb-2" size="normal" text="Submit" />
     </form>

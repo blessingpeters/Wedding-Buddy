@@ -24,8 +24,8 @@ const Header = () => {
             {/* <button className="px-9 my-4 mx-4 py-4 border border-burgundy-100 rounded-md">
                 Vendor Login
             </button> */}
-            <WbButton className="max-sm:mb-4" text="Become a Vendor" onClick={()=> navigate("/VendorSignup")} />
-            <WbButton className="mx-4" text="Couple's SignUp" variant="outline" onClick={()=> navigate("/CoupleSignup")} />
+            <WbButton className="max-sm:mb-4" text="Become a Vendor" onClick={()=> navigate("/vendorSignup")} />
+            <WbButton className="mx-4" text="Couple's SignUp" variant="outline" onClick={()=> navigate("/coupleSignup")} />
             </div>
         </div>
 
