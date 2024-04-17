@@ -1,9 +1,10 @@
-import React from 'react'
+// import React from 'react'
 
 const CoupleDashboard = () => {
   return (
     <div>
-      
+      couple Dashboard
+
     </div>
   )
 }

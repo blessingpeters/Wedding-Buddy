@@ -40,7 +40,11 @@ const Navbar = () => {
       href: "/coupleLogin" },
     {
       name: "My Account",
-      href: "#"
+      href: "/couple"
+    },
+    {
+      name: "vendor Account",
+      href: "/your"
     },
   ];
   const toggleSidebar = () => setIsOpen(!isOpen);
