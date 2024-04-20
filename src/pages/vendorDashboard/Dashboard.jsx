@@ -40,28 +40,29 @@ const options = {
 
 const VendorDashboard = () => {
   return (
-    <section className="lg:px-16 sm:px-8 px-3 py-6 font-raleway">
-      <div className="flex justify-between items-center">
+    <section className="lg:px-16 sm:px-8 px-3 py-10 font-raleway">
+      <div className="flex justify-between items-center gap-4">
         <div className=" text-graywhite-600">
           <h1 className="md:text-4xl text-2xl">Hi, Vendor.</h1>
           <p className="font-lato md:text-2xl text-lg">Here’s what’s happening with your wedding venue business today.</p>
         </div>
-        <p className="font-lato text-lg">
-          <input className="mr-2" type="checkbox" name="checkbox" id="checkbox" />
+        <p className="font-lato text-lg flex items-center">
+          <input className="mr-2 h-6 w-6 checked:text-burgundy-200 checkbox" type="checkbox" name="checkbox" id="checkbox" />
           Availability status</p>
       </div>
-      <div className="flex justify-between gap-6 my-10 flex-wrap items-center">
-        <div className="text-center text-xl bg-white shadow-2xl pt-4 w-72 mx-auto">
-            <h2 className="font-bold text-7xl">6</h2>
+      <div className=" my-10 grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-6 place-items-center">
+        <div className="text-center text-xl bg-white shadow-2xl pt-4 w-full">
+            <h2 className="font-bold md:text-7xl text-4xl">6</h2>
             <p className="font-semibold my-4">Listed Services</p>
             <button className="font-semibold w-full bg-burgundy-100 text-white p-2">View All</button>
         </div>
-        <div className="text-center text-xl bg-white shadow-xl pt-4 w-72 mx-auto">
-            <h2 className="font-bold text-7xl">9</h2>
+        <div className="text-center text-xl bg-white shadow-2xl pt-4 w-full">
+            <h2 className="font-bold md:text-7xl text-4xl">9</h2>
             <p className="font-semibold my-4">Sub Vendors</p>
             <button className="font-semibold w-full bg-burgundy-100 text-white p-2">View All</button>
-        </div> <div className="text-center text-xl bg-white shadow-xl pt-4 w-72 mx-auto">
-            <h2 className="font-bold text-7xl">24</h2>
+        </div>
+        <div className="text-center text-xl bg-white shadow-2xl pt-4 w-full">
+            <h2 className="font-bold md:text-7xl text-4xl">24</h2>
             <p className="font-semibold my-4">Clients</p>
             <button className="font-semibold w-full bg-burgundy-100 text-white p-2">View All</button>
         </div>

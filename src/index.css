@@ -50,7 +50,9 @@
     background: url(/assets/images/lines.png) no-repeat, url(/assets/images/lines.png) bottom no-repeat, linear-gradient(to bottom, #A4235E, #6C173E, #3E0D24);
     /* background-position: calc(); */
 }
-
+.checkbox{
+    color: #50112E;
+}
 
 
 /* @media screen and (max-width: 768px) {

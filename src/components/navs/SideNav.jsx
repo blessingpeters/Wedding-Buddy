@@ -6,18 +6,18 @@ const SideNav = ({ userType }) => {
   const menu = userType === "vendor" ? vendorMenu : coupleMenu;
 
   return (
-    <nav className="flex flex-col justify-between">
+    <nav className="flex flex-col justify-between lg:h-screen">
       <>
         <div className="">
           <img
-            className="h-20 my-8 mx-auto"
+            className="h-20 my-7 mx-auto"
             src="/assets/images/wblogoedit.png"
             alt="wedding buddy logo"
           />
         </div>
         <hr />
 
-        <div className="my-5 px-3 md:px-10">
+        <div className="mt-5 mb-16 px-3 md:px-10">
           {menu.map((item) => (
             <Link
               key={item.name}

@@ -27,7 +27,7 @@ export const DashboardLayout = ({ userType }) => {
     };
   
     return (
-      <div className="flex h-screen">
+      <div className="flex">
         <aside className={`bg-[#A4235E] h-full text-white w-full sm:w-2/5 lg:w-1/4 ${isMobileMenuOpen ? 'block' : 'hidden'} md:block`}>
           <SideNav userType={userType} />
         </aside>
