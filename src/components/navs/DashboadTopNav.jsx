@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
-
-const DashboardTopNav = ({ onToggleMobileMenu }) => {
+import { Link } from "react-router-dom";
+const DashboardTopNav = ({ onToggleMobileMenu, title }) => {
   return (
-    <div className="bg-white flex justify-between items-center px-4 py-6 h-full w-full shadow-xl">
+    <div className="bg-white flex justify-between items-center lg:px-16 sm:px-8 px-3 py-6 h-full w-full shadow-xl">
       <button
         onClick={onToggleMobileMenu}
         className="block md:hidden text-burgundy-100"
@@ -22,8 +22,16 @@ const DashboardTopNav = ({ onToggleMobileMenu }) => {
           />
         </svg>
       </button>
-      <div>
-        <h1>Dashboard</h1>
+      <div className="w-full flex justify-between items-center font-semibold">
+        <h1 className="text-xl text-graywhite-600">{title}</h1>
+        <div className="flex md:gap-6 gap-2 font-lato text-burgundy-100 text-lg items-center">
+          <p className="text-white text-sm font-light bg-burgundy-100 p-2 rounded-full">FD</p>
+          <p>Arevo Events</p>
+          <Link to="/your/notifications">
+            <img src="/assets/icons/bell.svg" alt="notification bell" />
+          </Link>
+
+        </div>
       </div>
     </div>
   );

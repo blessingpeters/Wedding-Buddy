@@ -6,7 +6,7 @@ const SideNav = ({ userType }) => {
   const menu = userType === "vendor" ? vendorMenu : coupleMenu;
 
   return (
-    <nav className="flex flex-col justify-between h-full">
+    <nav className="flex flex-col justify-between">
       <>
         <div className="">
           <img
@@ -52,29 +52,30 @@ const coupleMenu = [
 },
   {
     name: "Budget",
-    icon: "/assets/icons/dashboard.svg",
+    icon: "/assets/icons/serviceIcon.svg",
     href: "/couple/budget",
   },
   {
     name: "Vendors",
-    icon: "/assets/icons/dashboard.svg",
+    icon: "/assets/icons/suticaseIcon.svg",
     href: "/couple/vendors",
   },
   {
+    name: "Checklist",
+    icon: "/assets/icons/bookIcon.svg",
+    href: "/couple/checklist",
+  },
+  {
     name: "Guestlist",
-    icon: "/assets/icons/dashboard.svg",
+    icon: "/assets/icons/suitcaseicon2.svg",
     href: "/couple/guestList",
   },
   {
     name: "Planning Tips",
-    icon: "/assets/icons/dashboard.svg",
+    icon: "/assets/icons/reviewicon.svg",
     href: "/couple/tips",
   },
-  {
-    name: "Checklist",
-    icon: "/assets/icons/dashboard.svg",
-    href: "/couple/checklist",
-  },
+
 ];
 
 const vendorMenu = [
@@ -85,32 +86,32 @@ const vendorMenu = [
   },
   {
     name: "Clients",
-    icon: "/assets/icons/dashboard.svg",
+    icon: "/assets/icons/clients.svg",
     href: "/your/clients",
   },
   {
     name: "Vendors",
-    icon: "/assets/icons/dashboard.svg",
+    icon: "/assets/icons/suticaseIcon.svg",
     href: "/your/subvendors",
   },
   {
     name: "Services",
-    icon: "/assets/icons/dashboard.svg",
+    icon: "/assets/icons/serviceIcon.svg",
     href: "/your/services",
   },
   {
     name: "Booking",
-    icon: "/assets/icons/dashboard.svg",
+    icon: "/assets/icons/bookIcon.svg",
     href: "/your/booking",
   },
   {
     name: "Portfolio",
-    icon: "/assets/icons/dashboard.svg",
+    icon: "/assets/icons/suitcaseicon2.svg",
     href: "/your/portfolio",
   },
   {
     name: "Reviews",
-    icon: "/assets/icons/dashboard.svg",
+    icon: "/assets/icons/reviewicon.svg",
     href: "/your/reviews",
   },
 ];

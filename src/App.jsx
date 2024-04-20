@@ -65,6 +65,7 @@ function App() {
           <Route path="booking" element={<Bookings />} />
           <Route path="portfolio" element={<Portfolio/>} />
           <Route path="reviews" element={<Reviews/>} />
+          <Route path="notifications" element={<Reviews/>} />
         </Route>
 
       </Routes>
