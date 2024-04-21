@@ -2,7 +2,7 @@
 import { Link } from "react-router-dom";
 const DashboardTopNav = ({ onToggleMobileMenu, title }) => {
   return (
-    <div className="bg-white flex justify-between items-center lg:px-16 sm:px-8 px-3 py-6 h-full w-full shadow-xl">
+    <div className="bg-white sticky flex justify-between items-center lg:px-16 sm:px-8 px-3 py-6 h-full w-full  shadow-xl">
       <button
         onClick={onToggleMobileMenu}
         className="block md:hidden text-burgundy-100"

@@ -20,14 +20,16 @@ const Clients = () => {
     <section className="lg:px-16 sm:px-8 px-3 py-10">
       <table className="table-auto font-lato font-medium text-graywhite-400 text-lg shadow w-full rounded-t-3xl">
         <thead className="font-700 text-left border-b border-[#D7D7D8] rounded-t-2xl">
-          <tr className="bg-[#ECECEC80]">
+          <tr className="bg-[#ECECEC80] text-pretty">
             <th className="pl-6 py-4">Couple Name</th>
             <th>Email Address</th>
             <th>Wedding Date</th>
             <th>Transaction Status</th>
             <th>Action</th>
             <th className="pr-4 cursor-pointer">
-              <img src="/assets/icons/filter-icon.svg" alt="filter icon" onClick={toggleFilterDropdown} />
+              <div className='h-10 w-10 flex items-center justify-end'>
+                <img  src="/assets/icons/filter-icon.svg" alt="filter icon" onClick={toggleFilterDropdown} />
+              </div>
               {showFilterDropdown && (
                 <div className="absolute font-normal right-10 bg-white shadow-md mt-2 rounded-lg my">
                   <ul className='my-4'>
@@ -47,6 +49,7 @@ const Clients = () => {
               <td>{client.date}</td>
               <td>{client.status}</td>
               <td className="text-[#F90303] cursor-pointer" onClick={() => handleDeleteClick(client)}>Delete</td>
+              <td><div></div></td>
             </tr>
           ))}
         </tbody>

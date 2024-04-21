@@ -6,7 +6,7 @@ const SideNav = ({ userType }) => {
   const menu = userType === "vendor" ? vendorMenu : coupleMenu;
 
   return (
-    <nav className="flex flex-col justify-between lg:h-screen">
+    <nav className="flex flex-col h-screen">
       <>
         <div className="">
           <img
@@ -32,7 +32,7 @@ const SideNav = ({ userType }) => {
         </div>
       </>
 
-      <div className="mt-auto flex items-center p-4 hover:bg-[#50112E33] rounded-2xl transition-colors text-sm md:text-xl mb-5 md:mx-10 mx-3">
+      <div className=" flex items-center p-4 hover:bg-[#50112E33] rounded-2xl transition-colors text-sm md:text-xl mb-5 md:mx-10 mx-3">
         <img
           className="mr-2"
           src="/assets/icons/logout-icon.svg"

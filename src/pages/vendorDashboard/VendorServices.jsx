@@ -1,21 +1,23 @@
 import { useState } from "react";
 import WbButton from "../../components/common/WbButton";
 import DeleteModal from "../../components/modals/DeleteModal";
+import AddNewService from "../../components/common/AddNewService";
 
 const VendorServices = () => {
   const [clients, setClients] = useState(clientsData);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [selectedClient, setSelectedClient] = useState(null);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const handleDeleteClick = (client) => {
     setSelectedClient(client);
     setShowDeleteModal(true);
   };
   return (
-    <section className="lg:px-16 sm:px-8 px-3 py-10 font-raleway">
+    <section className="lg:px-16 px-3 py-10 font-raleway">
       <div className="flex flex-col">
         <div className=" text-graywhite-600">
-          <h1 className="md:text-4xl text-2xl my-2">Services</h1>
+          <h1 className="md:text-4xl text-2xl mb-2">Services</h1>
           <p className="font-lato md:text-2xl text-lg">
             Here are all our services tailored for your satisfaction
           </p>
@@ -24,6 +26,7 @@ const VendorServices = () => {
           className="rounded-2xl w-max py-3 px-6 text-[16px] self-end my-6"
           text="Add New Service"
           size="small"
+          onClick={() => setIsSidebarOpen(true)}
         />
       </div>
 
@@ -56,6 +59,7 @@ const VendorServices = () => {
           }}
         />
       )}
+            <AddNewService isOpen={isSidebarOpen} closeSidebar={() => setIsSidebarOpen(false)} />
     </section>
   );
 };
