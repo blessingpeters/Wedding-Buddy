@@ -26,6 +26,8 @@ import GuessList from './pages/coupleDashboard/GuessList';
 import Tips from './pages/coupleDashboard/Tips';
 import CheckList from './pages/coupleDashboard/CheckList';
 import BookedVendors from './pages/coupleDashboard/BookedVendors';
+import Profile from './pages/Profile';
+import Notification from './pages/Notification';
 
 function App() {
   return (
@@ -65,7 +67,8 @@ function App() {
           <Route path="booking" element={<Bookings />} />
           <Route path="portfolio" element={<Portfolio/>} />
           <Route path="reviews" element={<Reviews/>} />
-          <Route path="notifications" element={<Reviews/>} />
+          <Route path="notifications" element={<Notification/>} />
+          <Route path="profile" element={<Profile/>} />
         </Route>
 
       </Routes>
