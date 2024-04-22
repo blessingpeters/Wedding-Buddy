@@ -1,6 +1,6 @@
 import WbButton from "../components/common/WbButton";
 
-const Profile = () => {
+const VendorProfile = () => {
   return (
     <section className="lg:px-16 sm:px-8 px-3 font-raleway">
       <div className=" text-graywhite-600  py-10 border-b border-[#AFABAB]">
@@ -190,4 +190,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default VendorProfile;

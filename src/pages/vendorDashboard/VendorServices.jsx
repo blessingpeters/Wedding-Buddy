@@ -1,7 +1,7 @@
 import { useState } from "react";
 import WbButton from "../../components/common/WbButton";
 import DeleteModal from "../../components/modals/DeleteModal";
-import AddNewService from "../../components/common/AddNewService";
+import AddNewService from "../../components/AddNewService";
 
 const VendorServices = () => {
   const [clients, setClients] = useState(clientsData);

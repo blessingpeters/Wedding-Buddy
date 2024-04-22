@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useState } from 'react';
-import WbButton from './WbButton';
+import WbButton from './common/WbButton';
 
 const AddNewService = ({ isOpen, closeSidebar }) => {
   const [category, setCategory] = useState('');
