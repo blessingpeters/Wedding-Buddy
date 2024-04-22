@@ -7,9 +7,8 @@ import DashboardTopNav from "../navs/DashboadTopNav";
 export const DashboardLayout = ({ userType }) => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const location = useLocation();
-
+    const pathSegments = location.pathname.split('/').filter(Boolean);
     const deriveTitleFromPath = () => {
-        const pathSegments = location.pathname.split('/').filter(Boolean);
         if (pathSegments.length === 1 && (pathSegments[0] === "your" || pathSegments[0] === "couple")) {
             return 'Dashboard';
         }
@@ -20,6 +19,13 @@ export const DashboardLayout = ({ userType }) => {
     };
 
     const title = deriveTitleFromPath();
+    const usernames =()=>{
+        if (pathSegments[0] === "your") {
+            return 'Arevo Events ';
+        } else{
+            return 'Faith & Daniel'
+        }
+    }
 
     const toggleMobileMenu = () => {
         setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -32,7 +38,7 @@ export const DashboardLayout = ({ userType }) => {
             </aside>
             <div className="flex flex-col w-full ml-0 lg:ml-[25%] md:ml-[40%]">
                 <header className=" bg-white h-1/10 shadow-xl">
-                    <DashboardTopNav onToggleMobileMenu={toggleMobileMenu} title={title} />
+                    <DashboardTopNav onToggleMobileMenu={toggleMobileMenu} title={title} usernames={usernames()} />
                 </header>
 
                 <div className="overflow-auto h-screen"  onClick={()=> setIsMobileMenuOpen(false)}>
