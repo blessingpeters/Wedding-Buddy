@@ -49,16 +49,16 @@ const coupleMenu = [
     name: "Dashboard",
     icon: "/assets/icons/dashboard.svg",
     href: "/couple"
-},
-  {
-    name: "Budget",
-    icon: "/assets/icons/serviceIcon.svg",
-    href: "/couple/budget",
   },
   {
     name: "Vendors",
     icon: "/assets/icons/suticaseIcon.svg",
     href: "/couple/vendors",
+  },
+  {
+    name: "Budget",
+    icon: "/assets/icons/serviceIcon.svg",
+    href: "/couple/budget",
   },
   {
     name: "Checklist",

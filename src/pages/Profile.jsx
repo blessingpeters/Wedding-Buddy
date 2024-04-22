@@ -184,7 +184,7 @@ const Profile = () => {
           </div>
         </div>
 
-        <WbButton className="w-full lg:w-1/2" text="Save Changes" />
+        <WbButton className="w-full lg:w-3/4" text="Save Changes" />
       </form>
     </section>
   );
