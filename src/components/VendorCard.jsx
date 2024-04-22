@@ -11,8 +11,8 @@ const VendorCard = ({
 }) => {
   return (
     <div className="bg-white rounded-xl shadow-2xl overflow-hidden mb-10 p-6">
-      <div className="flex justify-between">
-        <div className="flex gap-6">
+      <div className="flex justify-between flex-wrap">
+        <div className="flex flex-wrap gap-6">
           <img
             className="h-32 w-44 object-cover"
             src={vendor.image}
