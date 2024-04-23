@@ -236,7 +236,7 @@ const CoupleSignUp = () => {
       <div className="lg:w-3/5 sm:w-9/12 w-11/12 mx-auto font-inter bg-[#DDCCCC] rounded-2xl shadow-2.5xl shadow-[#00000026] sm:px-6 px-3 py-6">
         {renderStep()}
         <p className="text-center text-burgundy-100 text-lg font-raleway font-semibold">Step {currentStep} of 3</p>
-        <p className="text-center font-lato text-sm text-graywhite-400 mb-3">Already have an account?<a className="text-burgundy-100" href="/coupleLogin"> Log in</a> </p>
+        <p className="text-center font-lato text-sm text-graywhite-400 mb-3">Already have an account?<a className="text-burgundy-100" href="/auth/coupleLogin"> Log in</a> </p>
       </div>
     </section>
   );
