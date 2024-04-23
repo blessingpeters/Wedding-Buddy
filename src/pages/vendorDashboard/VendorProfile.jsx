@@ -1,4 +1,4 @@
-import WbButton from "../components/common/WbButton";
+import WbButton from "../../components/common/WbButton";
 
 const VendorProfile = () => {
   return (

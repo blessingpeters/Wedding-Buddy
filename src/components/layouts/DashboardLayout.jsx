@@ -10,14 +10,14 @@ export const DashboardLayout = ({ userType }) => {
 
   const pathSegments = location.pathname.split('/').filter(Boolean);
 
-  const isYourPath = pathSegments[0] === "your";
-  
-  const title = pathSegments.length === 1 && (isYourPath || pathSegments[0] === "couple")
+  const isVendor = pathSegments[0] === "vendor-dashboard";
+
+  const title = pathSegments.length === 1 && (isVendor || pathSegments[0] === "couple-dashboard")
     ? 'Dashboard'
     : pathSegments[1].charAt(0).toUpperCase() + pathSegments[1].slice(1);
 
-  const usernames = isYourPath ? 'Arevo Events' : 'Faith & Daniel';
-  const pathType = isYourPath ? 'your' : 'couple';
+  const usernames = isVendor ? 'Arevo Events' : 'Faith & Daniel';
+  const pathType = isVendor ? 'vendor-dashboard' : 'couple-dashboard';
 
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 

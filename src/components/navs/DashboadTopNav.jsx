@@ -25,7 +25,7 @@ const DashboardTopNav = ({ onToggleMobileMenu, title, usernames, path}) => {
       <div className="w-full flex justify-between items-center font-semibold">
         <h1 className="text-xl text-graywhite-600 font-raleway tracking-wide">{title}</h1>
         <div className="flex md:gap-6 gap-2 font-lato text-burgundy-100 text-lg items-center">
-          <Link to="/your/profile">
+          <Link to={`/${path}/profile`}>
             <p className="text-white text-sm font-light bg-burgundy-100 p-2 rounded-full">FD</p>
           </Link>
 

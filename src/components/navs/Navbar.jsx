@@ -33,18 +33,18 @@ const Navbar = () => {
   const dropdownItems = [
     {
       name: "Vendor’s Login",
-      href: "/vendorLogin"
+      href: "/auth/vendorLogin"
     },
     {
       name: "Couple’s Login",
-      href: "/coupleLogin" },
+      href: "/auth/coupleLogin" },
     {
       name: "My Account",
-      href: "/couple"
+      href: "/couple-dashboard"
     },
     {
       name: "vendor Account",
-      href: "/your"
+      href: "/vendor-dashboard"
     },
   ];
   const toggleSidebar = () => setIsOpen(!isOpen);

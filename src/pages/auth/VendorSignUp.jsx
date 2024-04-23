@@ -175,7 +175,7 @@ const VendorSignUp = () => {
 
           </div>
           <WbButton className="w-full mt-8 mb-2" size="normal" text="Submit" />
-          <p className="text-center font-lato text-sm text-graywhite-400">Already have an account?<a className="text-burgundy-100" href="/vendorLogin"> Sign in</a> </p>
+          <p className="text-center font-lato text-sm text-graywhite-400">Already have an account?<a className="text-burgundy-100" href="/auth/vendorLogin"> Sign in</a> </p>
         </form>
       </div>
     </section>

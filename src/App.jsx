@@ -26,7 +26,7 @@ import GuessList from './pages/coupleDashboard/GuessList';
 import Tips from './pages/coupleDashboard/Tips';
 import CheckList from './pages/coupleDashboard/CheckList';
 import BookedVendors from './pages/coupleDashboard/BookedVendors';
-import VendorProfile from './pages/VendorProfile';
+import VendorProfile from './pages/vendorDashboard/VendorProfile';
 import Notification from './components/Notification';
 
 function App() {
@@ -44,13 +44,13 @@ function App() {
           <Route path="*" element={<NotFoundPage />} />
         </Route>
 
-        <Route path="/" element={<AuthLayout />}>
+        <Route path="/auth" element={<AuthLayout />}>
           <Route path="vendorLogin" element={<VendorLogin />} />
           <Route path="coupleLogin" element={<CoupleLogin />} />
           <Route path="vendorSignup" element={<VendorSignup/>} />
           <Route path="coupleSignup" element={<CoupleSignup/>} />
         </Route>
-        <Route path="/couple" element={<DashboardLayout userType="couple" />}>
+        <Route path="/couple-dashboard" element={<DashboardLayout userType="couple" />}>
           <Route index element={<CoupleDashboard />} />
           <Route path="budget" element={<Budget />} />
           <Route path="guestlist" element={<GuessList />} />
@@ -58,9 +58,10 @@ function App() {
           <Route path="checklist" element={<CheckList/>} />
           <Route path="vendors" element={<BookedVendors />} />
           <Route path="notifications" element={<Notification/>} />
+          <Route path="profile" element={<VendorProfile/>} />
         </Route>
 
-        <Route path="/your" element={<DashboardLayout userType="vendor" />}>
+        <Route path="/vendor-dashboard" element={<DashboardLayout userType="vendor" />}>
           <Route index element={<VendorDashboard />} />
           <Route path="clients" element={<Clients/>} />
           <Route path="subvendors" element={<SubVendors />} />

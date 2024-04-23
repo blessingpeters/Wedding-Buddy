@@ -48,32 +48,32 @@ const coupleMenu = [
   {
     name: "Dashboard",
     icon: "/assets/icons/dashboard.svg",
-    href: "/couple"
+    href: "/couple-dashboard"
   },
   {
     name: "Vendors",
     icon: "/assets/icons/suticaseIcon.svg",
-    href: "/couple/vendors",
+    href: "/couple-dashboard/vendors",
   },
   {
     name: "Budget",
     icon: "/assets/icons/serviceIcon.svg",
-    href: "/couple/budget",
+    href: "/couple-dashboard/budget",
   },
   {
     name: "Checklist",
     icon: "/assets/icons/bookIcon.svg",
-    href: "/couple/checklist",
+    href: "/couple-dashboard/checklist",
   },
   {
     name: "Guestlist",
     icon: "/assets/icons/suitcaseicon2.svg",
-    href: "/couple/guestList",
+    href: "/couple-dashboard/guestList",
   },
   {
     name: "Planning Tips",
     icon: "/assets/icons/reviewicon.svg",
-    href: "/couple/tips",
+    href: "/couple-dashboard/tips",
   },
 
 ];
@@ -82,37 +82,37 @@ const vendorMenu = [
   {
     name: "Dashboard",
     icon: "/assets/icons/dashboard.svg",
-    href: "/your/",
+    href: "/vendor-dashboard",
   },
   {
     name: "Clients",
     icon: "/assets/icons/clients.svg",
-    href: "/your/clients",
+    href: "/vendor-dashboard/clients",
   },
   {
     name: "Vendors",
     icon: "/assets/icons/suticaseIcon.svg",
-    href: "/your/subvendors",
+    href: "/vendor-dashboard/subvendors",
   },
   {
     name: "Services",
     icon: "/assets/icons/serviceIcon.svg",
-    href: "/your/services",
+    href: "/vendor-dashboard/services",
   },
   {
     name: "Booking",
     icon: "/assets/icons/bookIcon.svg",
-    href: "/your/booking",
+    href: "/vendor-dashboard/booking",
   },
   {
     name: "Portfolio",
     icon: "/assets/icons/suitcaseicon2.svg",
-    href: "/your/portfolio",
+    href: "/vendor-dashboard/portfolio",
   },
   {
     name: "Reviews",
     icon: "/assets/icons/reviewicon.svg",
-    href: "/your/reviews",
+    href: "/vendor-dashboard/reviews",
   },
 ];
 export default SideNav;

@@ -22,12 +22,3 @@ export const AuthLayout = () => (
   </div>
 );
 
-// export const DashboardLayout = ({ userType }) => (
-//   <main className="">
-//     <SideNav userType={userType} />
-//     <div className="flex-1 p-4">
-//       <DashboadNav />
-//       <Outlet />
-//     </div>
-//   </main>
-// );

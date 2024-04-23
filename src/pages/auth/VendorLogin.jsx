@@ -19,7 +19,7 @@ const VendorLogin = () => {
           </div>
 
         <Login userType="vendor" />
-        <p className="text-center font-lato text-sm text-graywhite-400">Don’t have an account? <a className="text-burgundy-100" href="/vendorSignup"> Sign up</a></p>
+        <p className="text-center font-lato text-sm text-graywhite-400">Don’t have an account? <a className="text-burgundy-100" href="/auth/vendorSignup"> Sign up</a></p>
 
       </div>
     </section>
