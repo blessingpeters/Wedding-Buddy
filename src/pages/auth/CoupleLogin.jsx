@@ -16,7 +16,7 @@ const CoupleLogin = () => {
 
                 <Login userType="couple" />
 
-                <p className="text-center font-lato text-sm text-graywhite-400">Don’t have an account? <a className="text-burgundy-100" href="/coupleSignup">Sign up</a> </p>
+                <p className="text-center font-lato text-sm text-graywhite-400">Don’t have an account? <a className="text-burgundy-100" href="/auth/coupleSignup">Sign up</a> </p>
 
 
             </div>
