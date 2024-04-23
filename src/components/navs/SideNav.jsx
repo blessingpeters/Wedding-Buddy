@@ -1,9 +1,10 @@
 /* eslint-disable react/prop-types */
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const SideNav = ({ userType }) => {
   const menu = userType === "vendor" ? vendorMenu : coupleMenu;
+  const navigate = useNavigate()
 
   return (
     <nav className="flex flex-col h-screen">
@@ -32,7 +33,7 @@ const SideNav = ({ userType }) => {
         </div>
       </>
 
-      <div className=" flex items-center p-4 hover:bg-[#50112E33] rounded-2xl transition-colors text-sm md:text-xl mb-5 md:mx-10 mx-3">
+      <div className=" flex items-center p-4 hover:bg-[#50112E33] rounded-2xl transition-colors text-sm md:text-xl mb-5 md:mx-10 mx-3 cursor-pointer" onClick={()=> navigate("/")}>
         <img
           className="mr-2"
           src="/assets/icons/logout-icon.svg"
