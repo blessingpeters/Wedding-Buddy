@@ -27,6 +27,7 @@ import Tips from './pages/coupleDashboard/Tips';
 import CheckList from './pages/coupleDashboard/CheckList';
 import BookedVendors from './pages/coupleDashboard/BookedVendors';
 import VendorProfile from './pages/vendorDashboard/VendorProfile';
+import CoupleProfile from './pages/coupleDashboard/CoupleProfile';
 import Notification from './components/Notification';
 
 function App() {
@@ -58,7 +59,7 @@ function App() {
           <Route path="checklist" element={<CheckList/>} />
           <Route path="vendors" element={<BookedVendors />} />
           <Route path="notifications" element={<Notification/>} />
-          <Route path="profile" element={<VendorProfile/>} />
+          <Route path="profile" element={<CoupleProfile/>} />
         </Route>
 
         <Route path="/vendor-dashboard" element={<DashboardLayout userType="vendor" />}>
