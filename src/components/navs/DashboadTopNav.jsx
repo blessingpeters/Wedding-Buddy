@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
-const DashboardTopNav = ({ onToggleMobileMenu, title, usernames }) => {
+const DashboardTopNav = ({ onToggleMobileMenu, title, usernames, path}) => {
   return (
     <div className="bg-white sticky flex justify-between items-center lg:px-16 sm:px-8 px-3 py-6 h-full w-full  shadow-xl">
       <button
@@ -30,7 +30,7 @@ const DashboardTopNav = ({ onToggleMobileMenu, title, usernames }) => {
           </Link>
 
           <p>{usernames}</p>
-          <Link to="/your/notifications">
+          <Link to={`/${path}/notifications`}>
             <img src="/assets/icons/bell.svg" alt="notification bell" />
           </Link>
 

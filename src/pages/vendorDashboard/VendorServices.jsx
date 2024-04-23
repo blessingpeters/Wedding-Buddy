@@ -23,7 +23,7 @@ const VendorServices = () => {
           </p>
         </div>
         <WbButton
-          className="rounded-2xl w-max py-3 px-6 text-[16px] self-end my-6"
+          className="rounded-2xl w-max py-3 px-6 text-[16px] self-end mt-6"
           text="Add New Service"
           size="small"
           onClick={() => setIsSidebarOpen(true)}
@@ -32,19 +32,21 @@ const VendorServices = () => {
 
       <div className="text-graywhite-400 font-lato font-medium sm:text-lg tex-sm sm:gap-4 gap-1 w-full">
         {clients.map((client) => (
-          <div key={client.id} className="grid md:grid-cols-5 grid-cols-3 my-4 shadow text-center gap-4">
-            <p className="py-10 bg-[#7777771A]">{client.img}</p>
-            <div className="py-10 text-left">
-              <p>{client.name}</p>
+          <div key={client.id} className="h-[105px] grid grid-cols-5 gap-2  my-4 shadow text-center">
+            <p className="grid place-items-center bg-[#7777771A] max-sm:text-xs">{client.img}</p>
+            <div className="h-full lg:w-3/4 mx-auto flex flex-col justify-center text-left col-span-2">
+              <p className="max-sm:text-xs ">{client.name}</p>
               <p className="sm:text-sm text-xs text-[#979191] font-normal">{client.address}</p>
             </div>
 
-            <p className="py-10">{client.price}</p>
-            <p className="py-10 sm:text-right text-green-800">Edit</p>
-            <p className="py-10 text-[#F90303] cursor-pointer"
+            <p className="max-sm:text-xs flex items-center">{client.price}</p>
+            <div className="max-sm:text-xs flex items-center gap-2 lg:gap-10 flex-wrap">
+
+            <p className=" sm:text-right text-green-800">Edit</p>
+            <p className=" text-[#F90303] cursor-pointer"
               onClick={() => handleDeleteClick(client)}>
               Delete
-            </p>
+            </p> </div>
           </div>
         ))}
       </div>

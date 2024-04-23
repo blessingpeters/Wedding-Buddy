@@ -5,46 +5,36 @@ import { Outlet, useLocation } from "react-router-dom";
 import DashboardTopNav from "../navs/DashboadTopNav";
 
 export const DashboardLayout = ({ userType }) => {
-    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    const location = useLocation();
-    const pathSegments = location.pathname.split('/').filter(Boolean);
-    const deriveTitleFromPath = () => {
-        if (pathSegments.length === 1 && (pathSegments[0] === "your" || pathSegments[0] === "couple")) {
-            return 'Dashboard';
-        }
-        if (pathSegments.length > 1) {
-            return pathSegments[1].charAt(0).toUpperCase() + pathSegments[1].slice(1);
-        }
-        return 'Dashboard';
-    };
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
-    const title = deriveTitleFromPath();
-    const usernames =()=>{
-        if (pathSegments[0] === "your") {
-            return 'Arevo Events ';
-        } else{
-            return 'Faith & Daniel'
-        }
-    }
+  const pathSegments = location.pathname.split('/').filter(Boolean);
 
-    const toggleMobileMenu = () => {
-        setIsMobileMenuOpen(!isMobileMenuOpen);
-    };
+  const isYourPath = pathSegments[0] === "your";
+  
+  const title = pathSegments.length === 1 && (isYourPath || pathSegments[0] === "couple")
+    ? 'Dashboard'
+    : pathSegments[1].charAt(0).toUpperCase() + pathSegments[1].slice(1);
 
-    return (
-        <div className="flex">
-            <aside className={`fixed bg-[#A4235E] h-full text-white sm:w-2/5 lg:w-1/4 ${isMobileMenuOpen ? 'block' : 'hidden'} md:block overflow-auto z-10`}>
-                <SideNav userType={userType} />
-            </aside>
-            <div className="flex flex-col w-full ml-0 lg:ml-[25%] md:ml-[40%]">
-                <header className=" bg-white h-1/10 shadow-xl">
-                    <DashboardTopNav onToggleMobileMenu={toggleMobileMenu} title={title} usernames={usernames()} />
-                </header>
+  const usernames = isYourPath ? 'Arevo Events' : 'Faith & Daniel';
+  const pathType = isYourPath ? 'your' : 'couple';
 
-                <div className="overflow-auto h-screen"  onClick={()=> setIsMobileMenuOpen(false)}>
-                    <Outlet />
-                </div>
-            </div>
+  const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
+
+  return (
+    <div className="flex">
+      <aside className={`fixed bg-[#A4235E] h-full text-white sm:w-2/5 lg:w-1/4 ${isMobileMenuOpen ? 'block' : 'hidden'} md:block overflow-auto z-10`}>
+        <SideNav userType={userType} />
+      </aside>
+      <div className="flex flex-col w-full lg:ml-[25%] md:ml-[40%]">
+        <header className="bg-white h-1/10 shadow-xl">
+          <DashboardTopNav onToggleMobileMenu={toggleMobileMenu} title={title} usernames={usernames} path={pathType} />
+        </header>
+
+        <div className="overflow-auto h-screen" onClick={() => setIsMobileMenuOpen(false)}>
+          <Outlet />
         </div>
-    );
+      </div>
+    </div>
+  );
 };
