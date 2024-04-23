@@ -97,22 +97,28 @@ function AboutPage() {
           OUR WEDDING GALLERY
         </h2>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 w-full gallery bg-burgundy-100">
-            <img className="" src="/assets/images/Wedding-chandelier.png" alt="gallery photo" />
-            <img className="" src="assets/images/galleryimage2.png" alt="gallery photo" />
-            <img className="" src="/assets/images/gallery-image3.png" alt="gallery photo" />
-            <img className="" src="/assets/images/gallery-image4.png" alt="gallery photo" />
-            <img className="" src="/assets/images/gallery-image5.png" alt="gallery photo" />
-            <img className="" src="/assets/images/gallery-image6.png" alt="gallery photo" />
-            <img className="" src="/assets/images/gallery-image7.png" alt="gallery photo" />
-            <div className="p-4">
-              <img className="roundec-md" src="/assets/images/gallery-image9.png" alt="gallery photo" />
+        <div className="columns-3 gap-0 bg-burgundy-100">
+            <img className="w-full aspect-square object-cover" src="/assets/images/Wedding-chandelier.png" alt="gallery photo" />
+            <img className="w-full aspect-video object-cover" src="/assets/images/gallery-image4.png" alt="gallery photo" />
+            <img className="w-full aspect-video object-cover" src="/assets/images/gallery-image7.png" alt="gallery photo" />
+            <img className="w-full aspect-square object-cover" src="/assets/images/Wedding-table 1.png" alt="gallery photo" />
+
+            <img className="w-full object-cover aspect-square" src="/assets/images/galleryimage2.png" alt="gallery photo" />
+            <img className="w-full object-cover" src="/assets/images/gallery-image5.png" alt="gallery photo" />
+            <div className="sm:p-4 p-2 w-full">
+              <img className="rounded-md w-full object-cover aspect-square" src="/assets/images/gallery-image9.png" alt="gallery photo" />
             </div>
-            <img className="" src="/assets/images/couple-on-stairs.png" alt="gallery photo" />
-            <img className="" src="/assets/images/Wedding-table 1.png" alt="gallery photo" />
-            <div className="bg-white h-max">
+            <div className="bg-white h-max w-full">
               <img className="" src="/assets/images/gallery-image8.png" alt="gallery photo" />
             </div>
+
+            <img className="w-full object-cover aspect-square" src="/assets/images/gallery-image3.png" alt="gallery photo" />
+
+            <img className="w-full object-cover aspect-auto" src="/assets/images/gallery-image6.png" alt="gallery photo" />
+
+            <img className="w-full object-cover" src="/assets/images/couple-on-stairs.png" alt="gallery photo" />
+
+
 
         </div>
       </section>
