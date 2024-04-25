@@ -5,10 +5,12 @@ import { doc, setDoc } from 'firebase/firestore';
 import { db } from '/firebase'
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 import { toast } from 'react-toastify';
+import { useUser } from '../../context/UserContext';
 
 
 const VendorSignUp = () => {
   const auth = getAuth();
+  const { setUserType } = useUser();
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     companyName: '',
@@ -49,12 +51,12 @@ const VendorSignUp = () => {
         uid: user.uid,
         role: 'vendor'
       });
-
+      setUserType('vendor');
       toast.success("Vendor registration successful!", {
-        onClose: () => navigate('/vendor-dashboard/services'),
+        onClose: () => navigate('/services'),
         autoClose: 2000
       });
-      console.log("Registration successful, user:", userCredential.user);
+      console.log("Vendor Registration successful, user:", user);
 
     } catch (error) {
       console.error("Error in vendor registration:", error.message);
@@ -113,6 +115,10 @@ const VendorSignUp = () => {
               <option value="nigeria">Select One</option>
               <option value="phography">Photography</option>
               <option value="planner">Wedding Planner</option>
+              <option value="planner">Cake Vendor</option>
+              <option value="planner">Decoration</option>
+              <option value="planner">Bridal wear</option>
+              <option value="planner">Grooms wear</option>
             </select>
           </div>
           <div className="w-full my-6">
@@ -225,6 +231,7 @@ const VendorSignUp = () => {
                 alt="eye slash icon"
               />
             </div>
+            <p className="text-xs text-burgundy-200">Password must be atleast 6 characters</p>
           </div>
           <div className="my-6">
             <label className="text-graywhite-600" htmlFor="message">

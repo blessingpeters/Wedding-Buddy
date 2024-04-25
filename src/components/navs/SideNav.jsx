@@ -2,18 +2,21 @@
 import { toast } from 'react-toastify';
 import { Link, useNavigate } from "react-router-dom";
 import { getAuth, signOut } from 'firebase/auth';
+import { useUser } from '../../context/UserContext';
 
 const SideNav = ({ userType }) => {
   const menu = userType === "vendor" ? vendorMenu : coupleMenu;
   const navigate = useNavigate()
   const auth = getAuth();
+  const { logout } = useUser();
   const handleLogout = async () => {
     try {
       await signOut(auth);
       toast.success("Successfully logged out!", {
         onClose: () => navigate('/'),
-        autoClose: 2000
+        autoClose: 1000
       });
+      logout();
     } catch (error) {
       console.error('Logout error:', error.message);
       toast.error(error.message);

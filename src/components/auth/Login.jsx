@@ -4,10 +4,15 @@ import WbButton from "../common/WbButton";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { useUser } from "../../context/UserContext";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from '/firebase';
+
 
 const Login = ({ userType }) => {
   const navigate = useNavigate();
   const auth = getAuth();
+  const { login } = useUser();
 
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
@@ -18,19 +23,29 @@ const Login = ({ userType }) => {
     event.preventDefault();
     setLoading(true);
     try {
-      const userCredential = await signInWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
-      console.log("Login successful:", userCredential.user);
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
 
-      // Redirect or perform further actions based on userType
-      toast.success("Registration successful!", {
-        onClose: () =>
-          userType === "vendor"
-            ? navigate("/vendor-dashboard")
-            : navigate("/couple-dashboard"),
+      // query the collection based on userType
+      const userCollection = userType === "vendor" ? "vendors" : "couples";
+
+      const userDocRef = doc(db, userCollection, user.uid);
+      const userDoc = await getDoc(userDocRef);
+
+      if (!userDoc.exists()) {
+        throw new Error(`Access denied. This portal is for ${userType}s only.`);
+      }
+
+      if (userDoc.data().role !== userType) {
+        throw new Error(`Access denied. This portal is for ${userType}s only.`);
+      }
+
+      console.log("Login successful:", user);
+      login(userType);
+      toast.success("Login successful!", {
+        onClose: () => {
+          navigate(userType === "vendor" ? "/vendor-dashboard" : "/couple-dashboard");
+        },
         autoClose: 2000,
       });
     } catch (error) {

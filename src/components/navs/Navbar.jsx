@@ -1,11 +1,15 @@
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import { useUser } from '../../context/UserContext';
+
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const navbarRef = useRef(); // Ref for the navbar to detect outside clicks
   const toggleButtonRef = useRef(); // Ref for the toggle button
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const { userType } = useUser();
+
 
   const menuItems = [
     {
@@ -30,23 +34,19 @@ const Navbar = () => {
     },
   ];
 
-  const dropdownItems = [
-    {
-      name: "Vendor’s Login",
-      href: "/auth/vendorLogin"
-    },
-    {
-      name: "Couple’s Login",
-      href: "/auth/coupleLogin" },
-    {
-      name: "My Account",
-      href: "/couple-dashboard"
-    },
-    {
-      name: "vendor Account",
-      href: "/vendor-dashboard"
-    },
+  const dropdownItems = userType ? ( 
+    userType === "vendor" ? [
+      { name: "Vendor Account", href: "/vendor-dashboard" }
+    ] : [
+      { name: "My Account", href: "/couple-dashboard" }
+    ]
+  ) : [
+    { name: "Vendor’s Login", href: "/auth/vendorLogin" },
+    { name: "Couple’s Login", href: "/auth/coupleLogin" }
   ];
+  console.log("Current User Type:", userType);
+
+
   const toggleSidebar = () => setIsOpen(!isOpen);
   useEffect(() => {
     const handleOutsideClick = (event) => {

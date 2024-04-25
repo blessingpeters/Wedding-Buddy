@@ -5,10 +5,12 @@ import { db } from '/firebase'
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 import { toast } from 'react-toastify';
 import { useNavigate } from "react-router-dom";
+import { useUser } from '../../context/UserContext';
 
 const CoupleSignUp = () => {
   const navigate = useNavigate()
   const auth = getAuth();
+  const { setUserType } = useUser();
   const [currentStep, setCurrentStep] = useState(1);
   const [formData, setFormData] = useState({
     groomName: '',
@@ -42,12 +44,12 @@ const CoupleSignUp = () => {
       const userCredential = await createUserWithEmailAndPassword(auth, formData.email, formData.password);
       const user = userCredential.user;
 
-      await setDoc(doc(db, "users", user.uid), {
+      await setDoc(doc(db, "couples", user.uid), {
         ...formData,
         uid: user.uid
       });
-      console.log("Registration successful:", user);
-     
+      console.log("Couple Registration successful:", user);
+      setUserType('vendor');
       toast.success("Vendor registration successful!", {
         onClose: () => navigate('/vendors'),
         autoClose: 2000
@@ -56,6 +58,7 @@ const CoupleSignUp = () => {
     } catch (error) {
       console.error("Error in registration:", error.message);
       toast.error(error.message);
+      setCurrentStep(1);
     } finally {
       setLoading(false);
     }
@@ -89,6 +92,7 @@ const CoupleSignUp = () => {
                 value={formData.groomName}
                 placeholder="Enter Groom’s full name"
                 onChange={handleInputChange}
+                required
               />
             </div>
             <div className="w-full my-6">
@@ -101,6 +105,7 @@ const CoupleSignUp = () => {
                 value={formData.brideName}
                 placeholder="Enter Bride’s full name"
                 onChange={handleInputChange}
+                required
               />
             </div>
             <div className="w-full my-6">
@@ -113,6 +118,7 @@ const CoupleSignUp = () => {
                 value={formData.email}
                 placeholder="Email address"
                 onChange={handleInputChange}
+                required
               />
             </div>
             <div className="my-6">
@@ -126,6 +132,7 @@ const CoupleSignUp = () => {
                   value={formData.password}
                   placeholder="Enter password"
                   onChange={handleInputChange}
+                  required
                 />
                 <img
                   onClick={() => setShowPassword(!showPassword)}
@@ -134,6 +141,7 @@ const CoupleSignUp = () => {
                   alt="eye slash icon"
                 />
               </div>
+              <p className="text-xs text-burgundy-200">Password must be atleast 6 characters</p>
             </div>
             <WbButton className="w-full mt-8 mb-2" size="normal" text="Proceed" onClick={nextStep} type="button"/>
           </div>
@@ -178,6 +186,7 @@ const CoupleSignUp = () => {
                 placeholder="Enter scheduled wedding date"
                 value={formData.weddingDate}
                 onChange={handleInputChange}
+                required
               />
             </div>
             <div className="w-full my-6">
