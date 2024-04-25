@@ -33,20 +33,18 @@ import PrivateRoute from './components/PrivateRoute';
 
 function App() {
   return (
-    <div>
+
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
           <Route path="about" element={<AboutPage />} />
           <Route path="services" element={<Services />} />
-          <Route element={<PrivateRoute />}>
-          <Route path="vendors" element={<VendorsPage />} />
+          <Route path="vendors" element={<PrivateRoute><VendorsPage /></PrivateRoute>} />
           <Route path="vendors/:vendorListings" element={<VendorListingsPage />} />
           <Route path="vendors/:vendorListings/:vendorId" element={<VendorDetailPage />} />
-          </Route>
           <Route path="contact" element={<ContactPage />} />
           <Route path="*" element={<NotFoundPage />} />
-        </Route>
+      </Route>
 
         <Route path="/auth" element={<AuthLayout />}>
           <Route path="vendorLogin" element={<VendorLogin />} />
@@ -54,8 +52,8 @@ function App() {
           <Route path="vendorSignup" element={<VendorSignup/>} />
           <Route path="coupleSignup" element={<CoupleSignup/>} />
         </Route>
-        <Route element={<PrivateRoute />}>
-        <Route path="/couple-dashboard" element={<DashboardLayout userType="couple" />}>
+
+        <Route path="/couple-dashboard" element={<PrivateRoute><DashboardLayout userType="couple" /></PrivateRoute>}>
           <Route index element={<CoupleDashboard />} />
           <Route path="budget" element={<Budget />} />
           <Route path="guestlist" element={<GuessList />} />
@@ -65,9 +63,8 @@ function App() {
           <Route path="notifications" element={<Notification/>} />
           <Route path="profile" element={<CoupleProfile/>} />
         </Route>
-        </Route>
-        <Route element={<PrivateRoute />}>
-        <Route path="/vendor-dashboard" element={<DashboardLayout userType="vendor" />}>
+
+        <Route path="/vendor-dashboard" element={<PrivateRoute><DashboardLayout userType="vendor" /></PrivateRoute>}>
           <Route index element={<VendorDashboard />} />
           <Route path="clients" element={<Clients/>} />
           <Route path="subvendors" element={<SubVendors />} />
@@ -78,10 +75,10 @@ function App() {
           <Route path="notifications" element={<Notification/>} />
           <Route path="profile" element={<VendorProfile/>} />
         </Route>
-        </Route>
+
 
       </Routes>
-    </div>
+
   );
 }
 

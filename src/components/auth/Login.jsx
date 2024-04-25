@@ -42,12 +42,9 @@ const Login = ({ userType }) => {
 
       console.log("Login successful:", user);
       login(userType);
-      toast.success("Login successful!", {
-        onClose: () => {
-          navigate(userType === "vendor" ? "/vendor-dashboard" : "/couple-dashboard");
-        },
-        autoClose: 2000,
-      });
+      navigate(userType === "vendor" ? "/vendor-dashboard" : "/couple-dashboard");
+      toast.success("Login successful!");
+
     } catch (error) {
       console.error("Login error:", error.message);
       toast.error(error.message);

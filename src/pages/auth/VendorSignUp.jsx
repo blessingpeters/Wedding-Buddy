@@ -52,11 +52,8 @@ const VendorSignUp = () => {
         role: 'vendor'
       });
       setUserType('vendor');
-      toast.success("Vendor registration successful!", {
-        onClose: () => navigate('/'),
-        autoClose: 2000
-      });
-      console.log("Vendor Registration successful, user:", user);
+      navigate('/')
+      toast.success("Vendor registration successful!");
 
     } catch (error) {
       console.error("Error in vendor registration:", error.message);

@@ -50,11 +50,8 @@ const CoupleSignUp = () => {
       });
       console.log("Couple Registration successful:", user);
       setUserType('vendor');
-      toast.success("Vendor registration successful!", {
-        onClose: () => navigate('/vendors'),
-        autoClose: 2000
-      });
-
+      navigate('/vendors')
+      toast.success("Vendor registration successful!");
     } catch (error) {
       console.error("Error in registration:", error.message);
       toast.error(error.message);
@@ -261,7 +258,7 @@ const CoupleSignUp = () => {
                 onChange={handleInputChange}
               />
             </div>
-            <WbButton className="w-full mt-8 mb-2" size="normal" text={loading ? "Submitting..." : "Submit"} type="submit" disabled={loading}/>
+            <WbButton className="w-full mt-8 mb-2" size="normal" text={loading ? "Submitting..." : "Submit"}  disabled={loading} type="submit"/>
           </form> </>
         );
       default:

@@ -12,11 +12,9 @@ const SideNav = ({ userType }) => {
   const handleLogout = async () => {
     try {
       await signOut(auth);
-      toast.success("Successfully logged out!", {
-        onClose: () => navigate('/'),
-        autoClose: 1000
-      });
-      logout();
+      logout();navigate('/'),
+      toast.success("Successfully logged out!")
+
     } catch (error) {
       console.error('Logout error:', error.message);
       toast.error(error.message);
@@ -27,11 +25,13 @@ const SideNav = ({ userType }) => {
     <nav className="flex flex-col h-screen">
       <>
         <div className="">
+        <Link to={'/'}>
           <img
             className="h-20 my-7 mx-auto"
             src="/assets/images/wblogoedit.png"
             alt="wedding buddy logo"
           />
+        </Link>
         </div>
         <hr />
 
