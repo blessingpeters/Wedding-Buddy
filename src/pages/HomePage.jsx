@@ -3,8 +3,10 @@ import Gallery from "../components/Gallery";
 import Header from "../components/header/Header";
 import Offers from "../components/Offers";
 import Review from "../components/Review"
+import { useNavigate } from "react-router-dom";
 
 function HomePage() {
+  const navigate = useNavigate()
   return (
     <>
       <Header />
@@ -48,7 +50,7 @@ function HomePage() {
         />
         <div className=" w-full md:w-[642px] mx-auto relative -top-32 bg-burgundy-100 text-white p-10 text-center">
           <h4 className="font-bold text-xl">LETS MEET</h4>
-          <button className="border border-white px-8 py-4 rounded-md my-10">
+          <button className="border border-white px-8 py-4 rounded-md my-10" onClick={()=> navigate("/vendors")}>
             Book a Vendor
           </button>
 

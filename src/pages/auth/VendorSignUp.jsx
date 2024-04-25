@@ -10,7 +10,7 @@ import { useUser } from '../../context/UserContext';
 
 const VendorSignUp = () => {
   const auth = getAuth();
-  const { setUserType } = useUser();
+  const { login} = useUser();
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     companyName: '',
@@ -51,7 +51,7 @@ const VendorSignUp = () => {
         uid: user.uid,
         role: 'vendor'
       });
-      setUserType('vendor');
+      login('vendor');
       navigate('/')
       toast.success("Vendor registration successful!");
 

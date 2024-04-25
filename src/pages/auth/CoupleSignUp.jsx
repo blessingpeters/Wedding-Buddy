@@ -10,7 +10,7 @@ import { useUser } from '../../context/UserContext';
 const CoupleSignUp = () => {
   const navigate = useNavigate()
   const auth = getAuth();
-  const { setUserType } = useUser();
+  const { login } = useUser();
   const [currentStep, setCurrentStep] = useState(1);
   const [formData, setFormData] = useState({
     groomName: '',
@@ -39,6 +39,7 @@ const CoupleSignUp = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true); 
 
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, formData.email, formData.password);
@@ -48,10 +49,11 @@ const CoupleSignUp = () => {
         ...formData,
         uid: user.uid
       });
-      console.log("Couple Registration successful:", user);
-      setUserType('vendor');
+
+      login('couple');
       navigate('/vendors')
-      toast.success("Vendor registration successful!");
+      toast.success("Couple registration successful!");
+
     } catch (error) {
       console.error("Error in registration:", error.message);
       toast.error(error.message);

@@ -1,9 +1,20 @@
 import Navbar from "../navs/Navbar";
 import WbButton from "../common/WbButton";
 import { useNavigate } from "react-router-dom";
+import { useUser } from "../../context/UserContext";
 
 const Header = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const { isAuthenticated, userType } = useUser();
+
+  const getDashboardRoute = () => {
+    if (userType === 'vendor') {
+      return '/vendor-dashboard';
+    } else if (userType === 'couple') {
+      return '/couple-dashboard';
+    }
+    return '/'; 
+  };
   return (
     <section className="hero-section h-full  font-raleway w-full">
       <Navbar />
@@ -18,14 +29,14 @@ const Header = () => {
             Connecting Couples to the right <br className="hidden md:block" /> Vendors
             </p>
             <div className="mt-4 md:mb-24 ">
-            {/* <button className="px-6 py-4 bg-burgundy-100 rounded-md my-4 mx-4 hover:bg-burgundy-50">
-                Become a Vendor
-            </button> */}
-            {/* <button className="px-9 my-4 mx-4 py-4 border border-burgundy-100 rounded-md">
-                Vendor Login
-            </button> */}
-            <WbButton className="max-sm:mb-4" text="Become a Vendor" onClick={()=> navigate("/auth/vendorSignup")} />
-            <WbButton className="mx-4" text="Couple's SignUp" variant="outline" onClick={()=> navigate("/auth/coupleSignup")} />
+            {isAuthenticated ? (
+              <WbButton text="Go to Dashboard" onClick={() => navigate(getDashboardRoute())} />
+            ) : (
+              <>
+                <WbButton className="max-sm:mb-4" text="Become a Vendor" onClick={() => navigate("/auth/vendorSignup")} />
+                <WbButton className="mx-4" text="Couple's SignUp" variant="outline" onClick={() => navigate("/auth/coupleSignup")} />
+              </>
+            )}
             </div>
         </div>
 

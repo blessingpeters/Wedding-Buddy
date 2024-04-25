@@ -36,7 +36,7 @@ const Navbar = () => {
 
   const dropdownItems = userType ? ( 
     userType === "vendor" ? [
-      { name: "Vendor Account", href: "/vendor-dashboard" }
+      { name: "My Account", href: "/vendor-dashboard" }
     ] : [
       { name: "My Account", href: "/couple-dashboard" }
     ]
