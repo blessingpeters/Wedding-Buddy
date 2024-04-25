@@ -60,7 +60,7 @@ const allcategories = [
     category: "Jewelers"
   },
   {
-    category: "Photograph/Videographer"
+    category: "Photography/Videographer"
   },
   {
     category: "Florist"

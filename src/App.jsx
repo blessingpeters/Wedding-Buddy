@@ -29,6 +29,7 @@ import BookedVendors from './pages/coupleDashboard/BookedVendors';
 import VendorProfile from './pages/vendorDashboard/VendorProfile';
 import CoupleProfile from './pages/coupleDashboard/CoupleProfile';
 import Notification from './components/Notification';
+import PrivateRoute from './components/PrivateRoute';
 
 function App() {
   return (
@@ -38,9 +39,11 @@ function App() {
           <Route index element={<HomePage />} />
           <Route path="about" element={<AboutPage />} />
           <Route path="services" element={<Services />} />
+          <Route element={<PrivateRoute />}>
           <Route path="vendors" element={<VendorsPage />} />
           <Route path="vendors/:vendorListings" element={<VendorListingsPage />} />
           <Route path="vendors/:vendorListings/:vendorId" element={<VendorDetailPage />} />
+          </Route>
           <Route path="contact" element={<ContactPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
@@ -51,6 +54,7 @@ function App() {
           <Route path="vendorSignup" element={<VendorSignup/>} />
           <Route path="coupleSignup" element={<CoupleSignup/>} />
         </Route>
+        <Route element={<PrivateRoute />}>
         <Route path="/couple-dashboard" element={<DashboardLayout userType="couple" />}>
           <Route index element={<CoupleDashboard />} />
           <Route path="budget" element={<Budget />} />
@@ -61,7 +65,8 @@ function App() {
           <Route path="notifications" element={<Notification/>} />
           <Route path="profile" element={<CoupleProfile/>} />
         </Route>
-
+        </Route>
+        <Route element={<PrivateRoute />}>
         <Route path="/vendor-dashboard" element={<DashboardLayout userType="vendor" />}>
           <Route index element={<VendorDashboard />} />
           <Route path="clients" element={<Clients/>} />
@@ -72,6 +77,7 @@ function App() {
           <Route path="reviews" element={<Reviews/>} />
           <Route path="notifications" element={<Notification/>} />
           <Route path="profile" element={<VendorProfile/>} />
+        </Route>
         </Route>
 
       </Routes>
