@@ -1,10 +1,24 @@
 /* eslint-disable react/prop-types */
-
+import { toast } from 'react-toastify';
 import { Link, useNavigate } from "react-router-dom";
+import { getAuth, signOut } from 'firebase/auth';
 
 const SideNav = ({ userType }) => {
   const menu = userType === "vendor" ? vendorMenu : coupleMenu;
   const navigate = useNavigate()
+  const auth = getAuth();
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+      toast.success("Successfully logged out!", {
+        onClose: () => navigate('/'),
+        autoClose: 2000
+      });
+    } catch (error) {
+      console.error('Logout error:', error.message);
+      toast.error(error.message);
+    }
+  };
 
   return (
     <nav className="flex flex-col h-screen">
@@ -33,7 +47,7 @@ const SideNav = ({ userType }) => {
         </div>
       </>
 
-      <div className=" flex items-center p-4 hover:bg-[#50112E33] rounded-2xl transition-colors text-sm md:text-xl mb-5 md:mx-10 mx-3 cursor-pointer" onClick={()=> navigate("/")}>
+      <div className=" flex items-center p-4 hover:bg-[#50112E33] rounded-2xl transition-colors text-sm md:text-xl mb-5 md:mx-10 mx-3 cursor-pointer" onClick={handleLogout}>
         <img
           className="mr-2"
           src="/assets/icons/logout-icon.svg"

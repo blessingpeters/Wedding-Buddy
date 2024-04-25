@@ -1,32 +1,48 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
 import WbButton from "../common/WbButton";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Login = ({ userType }) => {
-  const [showPassword, setShowPassword] = useState(false)
-  // const [username, setUsername] = useState('');
-  // const [password, setPassword] = useState('');
+  const navigate = useNavigate();
+  const auth = getAuth();
 
-  // const handleLogin = async (e) => {
-  //   e.preventDefault();
+  const [showPassword, setShowPassword] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  //   const apiEndpoint = userType === 'vendor' ? '/api/vendors/login' : '/api/shoppers/login';
+  const handleLogin = async (event) => {
+    event.preventDefault();
+    setLoading(true);
+    try {
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      console.log("Login successful:", userCredential.user);
 
-  //   try {
-  //     const response = await axios.post(apiEndpoint, {
-  //       username,
-  //       password
-  //     });
-  //     console.log('Login successful:', response.data);
-  //     // Here you might want to handle what happens after a successful login
-  //   } catch (error) {
-  //     console.error('Login error:', error);
-  //     // Handle errors here, such as displaying a message to the user
-  //   }
-  // };
+      // Redirect or perform further actions based on userType
+      toast.success("Registration successful!", {
+        onClose: () =>
+          userType === "vendor"
+            ? navigate("/vendor-dashboard")
+            : navigate("/couple-dashboard"),
+        autoClose: 2000,
+      });
+    } catch (error) {
+      console.error("Login error:", error.message);
+      toast.error(error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
-    <form>
+    <form onSubmit={handleLogin}>
       <div className="w-full my-6">
         <label className="text-graywhite-600" htmlFor="email">
           {userType === "vendor" ? "Company" : ""} Email Address
@@ -34,39 +50,51 @@ const Login = ({ userType }) => {
         <br />
         <input
           className={`w-full border border-graywhite-400 outline-none rounded-md bg-transparent ${
-            userType === "vendor" ? "p-4" : "p-6"} text-sm placeholder:text-graywhite-400`}
+            userType === "vendor" ? "p-4" : "p-6"
+          } text-sm placeholder:text-graywhite-400`}
           type="text"
-          name="name"
           id="email"
           placeholder={`Enter your ${
             userType === "vendor" ? "company" : ""
           } email address`}
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         />
       </div>
 
       <div className="my-6">
-        <label className="text-graywhite-600" htmlFor="message">
+        <label className="text-graywhite-600" htmlFor="password">
           Password
         </label>
         <div className="relative">
           <input
             className={`w-full border border-graywhite-400 outline-none rounded-md bg-transparent ${
-              userType === "vendor" ? "p-4" : "p-6"} text-sm placeholder:text-graywhite-400`}
-            type={showPassword ? 'text' : 'password'}
-            name="password"
+              userType === "vendor" ? "p-4" : "p-6"
+            } text-sm placeholder:text-graywhite-400`}
+            type={showPassword ? "text" : "password"}
             id="password"
             placeholder="Enter password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
           <img
-            onClick={()=> setShowPassword(!showPassword)}
+            onClick={() => setShowPassword(!showPassword)}
             className="absolute right-4 bottom-4 cursor-pointer"
             src="/assets/icons/eyeslash.svg"
             alt="eye slash icon"
           />
         </div>
-        <a href="#"><p className="mt-1 text-burgundy-100 text-sm font-lato">Forgot Password?</p></a>
+        <a href="#">
+          <p className="mt-1 text-burgundy-100 text-sm font-lato">
+            Forgot Password?
+          </p>
+        </a>
       </div>
-      <WbButton className="w-full mb-2" size="normal" text="Submit" />
+      <WbButton
+        className="w-full mb-2"
+        size="normal"
+        text={loading ? "Submitting..." : "Submit"}
+      />
     </form>
   );
 };

@@ -1,16 +1,76 @@
 import { useState } from "react";
 import WbButton from "../../components/common/WbButton";
 import { useNavigate } from "react-router-dom";
+import { doc, setDoc } from 'firebase/firestore';
+import { db } from '/firebase'
+import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+import { toast } from 'react-toastify';
+
 
 const VendorSignUp = () => {
-  const navigate = useNavigate()
-  const [showPassword, setShowPassword] = useState({ password: false, confirmPassword: false })
+  const auth = getAuth();
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState({
+    companyName: '',
+    category: '',
+    fullName: '',
+    companyEmail: '',
+    businessNumber: '',
+    country: '',
+    address: '',
+    phoneNumber: '',
+    password: '',
+    confirmPassword: ''
+  });
+  const [showPassword, setShowPassword] = useState({ password: false, confirmPassword: false });
+  const [loading, setLoading] = useState(false);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (formData.password !== formData.confirmPassword) {
+      toast.error("Passwords do not match!");
+      return;
+    }
+    setLoading(true);
+    try {
+      const userCredential = await createUserWithEmailAndPassword(auth, formData.companyEmail, formData.password);
+      const user = userCredential.user;
+      await setDoc(doc(db, "vendors", user.uid), {
+        ...formData,
+        uid: user.uid,
+        role: 'vendor'
+      });
+
+      toast.success("Vendor registration successful!", {
+        onClose: () => navigate('/vendor-dashboard/services'),
+        autoClose: 2000
+      });
+      console.log("Registration successful, user:", userCredential.user);
+
+    } catch (error) {
+      console.error("Error in vendor registration:", error.message);
+      toast.error(error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const togglePassword = (field) => {
     setShowPassword(prev => ({ ...prev, [field]: !prev[field] }));
   };
 
   return (
     <section className="auth-bg py-40">
+
       <div className=" lg:w-2/5 sm:w-9/12 w-11/12 mx-auto  font-inter bg-[#DDCCCC] rounded-2xl shadow-2.5xl shadow-[#00000026] sm:px-6 px-3 py-10">
         <div className="flex justify-center items-center divide-burgundy-200 divide-x-4">
           <img
@@ -24,9 +84,9 @@ const VendorSignUp = () => {
           </h4>
         </div>
 
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="w-full my-6">
-            <label className="text-graywhite-600" htmlFor="email">
+            <label className="text-graywhite-600" htmlFor="companyName">
               Company Name
             </label>{" "}
             <br />
@@ -36,6 +96,8 @@ const VendorSignUp = () => {
               name="companyName"
               id="companyName"
               placeholder="Enter company name"
+              onChange={handleInputChange}
+              required
             />{" "}
           </div>
           <div className="w-full my-6">
@@ -54,7 +116,7 @@ const VendorSignUp = () => {
             </select>
           </div>
           <div className="w-full my-6">
-            <label className="text-graywhite-600" htmlFor="email">
+            <label className="text-graywhite-600" htmlFor="fullName">
               Full Name
             </label>{" "}
             <br />
@@ -64,10 +126,12 @@ const VendorSignUp = () => {
               name="fullName"
               id="fullName"
               placeholder="Enter your full name"
+              onChange={handleInputChange}
+              required
             />{" "}
           </div>
           <div className="w-full my-6">
-            <label className="text-graywhite-600" htmlFor="email">
+            <label className="text-graywhite-600" htmlFor="companyEmail">
               Company Email
             </label>{" "}
             <br />
@@ -77,9 +141,12 @@ const VendorSignUp = () => {
               name="companyEmail"
               id="companyEmail"
               placeholder="Enter your company email address"
+              onChange={handleInputChange}
+              required
             />{" "}
-          </div> <div className="w-full my-6">
-            <label className="text-graywhite-600" htmlFor="email">
+          </div>
+          <div className="w-full my-6">
+            <label className="text-graywhite-600" htmlFor="businessNumber">
               Business Registration Number
             </label>{" "}
             <br />
@@ -89,6 +156,7 @@ const VendorSignUp = () => {
               name="businessNumber"
               id="businessNumber"
               placeholder="Enter business registration number"
+              onChange={handleInputChange}
             />{" "}
 
           </div>
@@ -108,7 +176,7 @@ const VendorSignUp = () => {
             </select>
           </div>
           <div className="w-full my-6">
-            <label className="text-graywhite-600" htmlFor="email">
+            <label className="text-graywhite-600" htmlFor="address">
               Addreess
             </label>{" "}
             <br />
@@ -118,9 +186,10 @@ const VendorSignUp = () => {
               name="address"
               id="address"
               placeholder="City, Street Number"
+              onChange={handleInputChange}
             />{" "}
           </div> <div className="w-full my-6">
-            <label className="text-graywhite-600" htmlFor="email">
+            <label className="text-graywhite-600" htmlFor="phoneNumber">
               Phone Number
             </label>{" "}
             <br />
@@ -130,6 +199,8 @@ const VendorSignUp = () => {
               name="phoneNumber"
               id="phoneNumber"
               placeholder="Enter your phone number"
+              onChange={handleInputChange}
+              required
             />
           </div>
 
@@ -144,6 +215,8 @@ const VendorSignUp = () => {
                 name="password"
                 id="password"
                 placeholder="Enter password"
+                onChange={handleInputChange}
+                required
               />{" "}
               <img
                 onClick={() => togglePassword('password')}
@@ -164,6 +237,8 @@ const VendorSignUp = () => {
                 name="confirmPassword"
                 id="confirmPassword"
                 placeholder="Type your password to confirm"
+                onChange={handleInputChange}
+                required
               />{" "}
               <img
                 onClick={() => togglePassword('confirmPassword')}
@@ -174,7 +249,7 @@ const VendorSignUp = () => {
             </div>
 
           </div>
-          <WbButton className="w-full mt-8 mb-2" size="normal" text="Submit" />
+          <WbButton className="w-full mt-8 mb-2" size="normal" text={loading ? "Submitting..." : "Submit"}  disabled={loading} />
           <p className="text-center font-lato text-sm text-graywhite-400">Already have an account?<a className="text-burgundy-100" href="/auth/vendorLogin"> Sign in</a> </p>
         </form>
       </div>

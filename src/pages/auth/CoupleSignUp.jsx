@@ -1,8 +1,15 @@
 import { useState } from "react";
 import WbButton from "../../components/common/WbButton";
+import { doc, setDoc } from 'firebase/firestore';
+import { db } from '/firebase'
+import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+import { toast } from 'react-toastify';
+import { useNavigate } from "react-router-dom";
 
 const CoupleSignUp = () => {
-  const [currentStep, setCurrentStep] = useState(1); // To track the current step
+  const navigate = useNavigate()
+  const auth = getAuth();
+  const [currentStep, setCurrentStep] = useState(1);
   const [formData, setFormData] = useState({
     groomName: '',
     brideName: '',
@@ -15,9 +22,10 @@ const CoupleSignUp = () => {
     budget: '',
     weddingPreference: '',
     relationshipStatus: '',
-    role: ''
-  }); // To hold form inputs across steps
+    role: 'couple'
+  });
   const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -27,14 +35,42 @@ const CoupleSignUp = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData); // Submit the data to your backend or API here
+
+    try {
+      const userCredential = await createUserWithEmailAndPassword(auth, formData.email, formData.password);
+      const user = userCredential.user;
+
+      await setDoc(doc(db, "users", user.uid), {
+        ...formData,
+        uid: user.uid
+      });
+      console.log("Registration successful:", user);
+     
+      toast.success("Vendor registration successful!", {
+        onClose: () => navigate('/vendors'),
+        autoClose: 2000
+      });
+
+    } catch (error) {
+      console.error("Error in registration:", error.message);
+      toast.error(error.message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const nextStep = () => {
-    setCurrentStep(currentStep + 1);
+    console.log("Next step called", currentStep);
+    if (currentStep < 3) {
+      setCurrentStep(currentStep + 1);
+    } else {
+      console.log("Final step reached, waiting for manual submit");
+    }
   };
+
+
 
   const renderStep = () => {
     switch (currentStep) {
@@ -42,7 +78,7 @@ const CoupleSignUp = () => {
         return (
           <>
           <h2 className="text-center font-raleway text-2xl text-burgundy-100 font-semibold mb-10 mt-6">Sign up as couples to book vendors and their services</h2>
-          <form onSubmit={(e) => e.preventDefault()}>
+          <div>
             <div className="w-full my-6">
               <label className="text-graywhite-400" htmlFor="groomName">Groom’s Full Name</label>
               <input
@@ -99,15 +135,15 @@ const CoupleSignUp = () => {
                 />
               </div>
             </div>
-            <WbButton className="w-full mt-8 mb-2" size="normal" text="Proceed" onClick={nextStep} />
-          </form>
+            <WbButton className="w-full mt-8 mb-2" size="normal" text="Proceed" onClick={nextStep} type="button"/>
+          </div>
           </>
         );
       case 2:
         return (
           <>
           <h2 className="text-center font-raleway text-2xl text-burgundy-100 font-semibold mb-10 mt-6">To Help us know you better, provide more information about you and your spouse</h2>
-          <form onSubmit={(e) => e.preventDefault()}>
+          <div>
             <div className="w-full my-6">
               <label className="text-graywhite-600" htmlFor="Bridedob">Bride DOB</label>
               <input
@@ -156,8 +192,8 @@ const CoupleSignUp = () => {
                 onChange={handleInputChange}
               />
             </div>
-            <WbButton className="w-full mt-8 mb-2" size="normal" text="Proceed" onClick={nextStep} />
-          </form>
+            <WbButton className="w-full mt-8 mb-2" size="normal" text="Proceed" onClick={nextStep} type="button"/>
+          </div>
           </>
         );
       case 3:
@@ -216,7 +252,7 @@ const CoupleSignUp = () => {
                 onChange={handleInputChange}
               />
             </div>
-            <WbButton className="w-full mt-8 mb-2" size="normal" text="Submit" />
+            <WbButton className="w-full mt-8 mb-2" size="normal" text={loading ? "Submitting..." : "Submit"} type="submit" disabled={loading}/>
           </form> </>
         );
       default:
