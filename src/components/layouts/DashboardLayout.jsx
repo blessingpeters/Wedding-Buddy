@@ -3,8 +3,10 @@ import { useState } from "react";
 import SideNav from "../navs/SideNav";
 import { Outlet, useLocation } from "react-router-dom";
 import DashboardTopNav from "../navs/DashboadTopNav";
+import { useUser } from "../../context/UserContext";
 
-export const DashboardLayout = ({ userType }) => {
+export const DashboardLayout = () => {
+  const { userType, userData } = useUser();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
 
@@ -16,7 +18,9 @@ export const DashboardLayout = ({ userType }) => {
     ? 'Dashboard'
     : pathSegments[1].charAt(0).toUpperCase() + pathSegments[1].slice(1);
 
-  const usernames = isVendor ? 'Arevo Events' : 'Faith & Daniel';
+    const usernames = userType === 'vendor' ? userData.companyName : `${userData.brideName} & ${userData.groomName}`;
+    const shortName = userType === 'vendor' ? userData.companyName.split(' ').map(n => n[0]).join('').toUpperCase() :
+      `${userData.brideName[0].toUpperCase()}${userData.groomName[0].toUpperCase()}`;
   const pathType = isVendor ? 'vendor-dashboard' : 'couple-dashboard';
 
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -28,7 +32,7 @@ export const DashboardLayout = ({ userType }) => {
       </aside>
       <div className="flex flex-col w-full lg:ml-[25%] md:ml-[40%]">
         <header className="bg-white h-1/10 shadow-xl">
-          <DashboardTopNav onToggleMobileMenu={toggleMobileMenu} title={title} usernames={usernames} path={pathType} />
+          <DashboardTopNav onToggleMobileMenu={toggleMobileMenu} title={title} usernames={usernames} shortName={shortName} path={pathType} />
         </header>
 
         <div className="overflow-auto h-screen" onClick={() => setIsMobileMenuOpen(false)}>

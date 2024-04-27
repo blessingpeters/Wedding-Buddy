@@ -1,11 +1,13 @@
-// import React from 'react'
+import { useUser } from "../../context/UserContext";
 
 const CoupleDashboard = () => {
+  const {userData} = useUser()
+  const usernames = `${userData.brideName} & ${userData.groomName}`;
   return (
     <section className="lg:px-16 sm:px-8 px-3 py-10 font-raleway">
 
         <div className=" text-graywhite-600">
-          <h1 className="md:text-4xl text-2xl my-2">Hi Faith & Daniel</h1>
+          <h1 className="md:text-4xl text-2xl my-2">Hi {usernames}</h1>
           <p className="font-lato md:text-2xl text-lg">Welcome couple. You can check and manage your wishlist, checklist, budget and guestlist overview.</p>
         </div>
 

@@ -39,18 +39,19 @@ const CoupleSignUp = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true); 
+    setLoading(true);
 
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, formData.email, formData.password);
       const user = userCredential.user;
-
-      await setDoc(doc(db, "couples", user.uid), {
+      const userData = {
         ...formData,
         uid: user.uid
-      });
+      }
 
-      login('couple');
+      await setDoc(doc(db, "couples", user.uid), userData);
+
+      login('couple', userData);
       navigate('/vendors')
       toast.success("Couple registration successful!");
 
@@ -243,9 +244,9 @@ const CoupleSignUp = () => {
               value={formData.relationshipStatus}
               onChange={handleInputChange}
             >
-              <option value="nigeria">Select wedding status, e.g Engaged, Married</option>
-              <option value="phography">Engaged</option>
-              <option value="planner">Married</option>
+              <option value="">Select wedding status, e.g Engaged, Married</option>
+              <option value="engaged">Engaged</option>
+              <option value="married">Married</option>
             </select>
             </div>
             <div className="w-full my-6">

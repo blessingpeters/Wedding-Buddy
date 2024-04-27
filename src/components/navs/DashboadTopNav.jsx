@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
-const DashboardTopNav = ({ onToggleMobileMenu, title, usernames, path}) => {
+const DashboardTopNav = ({ onToggleMobileMenu, title, usernames, shortName, path}) => {
   return (
     <div className="bg-white sticky flex justify-between items-center lg:px-16 sm:px-8 px-3 py-6 h-full w-full  shadow-xl">
       <button
@@ -26,7 +26,7 @@ const DashboardTopNav = ({ onToggleMobileMenu, title, usernames, path}) => {
         <h1 className="text-xl text-graywhite-600 font-raleway tracking-wide">{title}</h1>
         <div className="flex md:gap-6 gap-2 font-lato text-burgundy-100 text-lg items-center">
           <Link to={`/${path}/profile`}>
-            <p className="text-white text-sm font-light bg-burgundy-100 p-2 rounded-full">FD</p>
+            <p className="text-white text-sm font-light bg-burgundy-100 p-2 rounded-full">{shortName}</p>
           </Link>
 
           <p>{usernames}</p>

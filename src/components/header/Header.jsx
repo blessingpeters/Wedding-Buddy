@@ -13,7 +13,7 @@ const Header = () => {
     } else if (userType === 'couple') {
       return '/couple-dashboard';
     }
-    return '/'; 
+    return '/';
   };
   return (
     <section className="hero-section h-full  font-raleway w-full">

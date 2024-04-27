@@ -46,12 +46,14 @@ const VendorSignUp = () => {
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, formData.companyEmail, formData.password);
       const user = userCredential.user;
-      await setDoc(doc(db, "vendors", user.uid), {
+      const userData = {
         ...formData,
         uid: user.uid,
         role: 'vendor'
-      });
-      login('vendor');
+      }
+      await setDoc(doc(db, "vendors", user.uid), userData);
+
+      login('vendor', userData);
       navigate('/')
       toast.success("Vendor registration successful!");
 

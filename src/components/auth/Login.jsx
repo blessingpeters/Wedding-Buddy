@@ -36,12 +36,14 @@ const Login = ({ userType }) => {
         throw new Error(`Access denied. This portal is for ${userType}s only.`);
       }
 
+      const userData = userDoc.data();
+
       if (userDoc.data().role !== userType) {
         throw new Error(`Access denied. This portal is for ${userType}s only.`);
       }
 
       console.log("Login successful:", user);
-      login(userType);
+      login(userType, userData);
       navigate(userType === "vendor" ? "/vendor-dashboard" : "/couple-dashboard");
       toast.success("Login successful!");
 
