@@ -7,15 +7,13 @@ import {Tabs, Tab} from '../../components/VendorTab';
 const Budget = () => {
 
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const [couplesBudget, setCouplesBudget] = useState(CoupleBudget)
   const [budgetDetails, setBudgetDetails] = useState(BudgetDetails)
 
   const handleDelete = (id) => {
-    setBudgetDetails(budgetDetails.filter(detail => detail.id !== id));
+    setBudgetDetails(budgetDetails.filter(budget=> budget.id !== id));
   };
   const addNewBudgetItem = (newItem) => {
-    const newId = budgetDetails.length + 1; // Simplistic approach to generate a new ID
-    setCouplesBudget([...couplesBudget, { ...newItem, id: newId }]);
+    const newId = budgetDetails.length + 1;
     setBudgetDetails([...budgetDetails, { ...newItem, id: newId }]);
   };
 
@@ -47,7 +45,7 @@ const Budget = () => {
             <p>Status</p>
 
         </div>
-        {couplesBudget.map((budget) => (
+        {budgetDetails.map((budget) => (
           <div key={budget.id} className="max-sm:text-xs text-graywhite-400 font-lato py-5 border grid grid-cols-5 gap-2 text-center">
             <p>{budget.event}</p>
             <p>N {budget.estimate}</p>
@@ -66,15 +64,15 @@ const Budget = () => {
             <p>Status</p>
             <p>Action</p>
         </div>
-        {budgetDetails.map((detail) => (
-          <div key={detail.id} className="max-sm:text-xs text-graywhite-400 font-lato py-5 border grid grid-cols-6 gap-2 text-center">
-          <p>{detail.event}</p>
-          <p>N {detail.estimate}</p>
-          <p>N {detail.actual}</p>
-          <p>N {detail.paid}</p>
-          <p>{detail.status}</p>
+        {budgetDetails.map((budget) => (
+          <div key={budget.id} className="max-sm:text-xs text-graywhite-400 font-lato py-5 border grid grid-cols-6 gap-2 text-center">
+          <p>{budget.event}</p>
+            <p>N {budget.estimate}</p>
+            <p>N {budget.actual}</p>
+            <p>N {budget.paid}</p>
+            <p>{budget.status}</p>
           <p>
-          <button onClick={() => handleDelete(detail.id)}  className="cursor-pointer text-burgundy-100 border border-burgundy-100 sm:py-1 sm:px-2 rounded">Delete</button>
+          <button onClick={() => handleDelete(budget.id)}  className="cursor-pointer text-burgundy-100 border border-burgundy-100 sm:py-1 sm:px-2 rounded">Delete</button>
           </p>
         </div>
         ))}
@@ -85,36 +83,7 @@ const Budget = () => {
     </section>
   )
 }
-const CoupleBudget = [
-  {
-    id:1,
-    event: "Venue",
-    estimate: "300,000",
-    actual: "400,000",
-    paid: "0",
-    status: "Pending"
 
-  },
-  {
-    id:2,
-    event: "Venue",
-    estimate: "300,000",
-    actual: "400,000",
-    paid: "0",
-    status: "Pending"
-
-  },
-  {
-    id:3,
-    event: "Venue",
-    estimate: "300,000",
-    actual: "300,000",
-    paid: "300,000",
-    status: "Completed"
-
-  },
-
-];
 const BudgetDetails = [
   {
     id:1,
