@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import {Tabs, Tab} from '../../components/VendorTab';
 import VendorCard from '../../components/VendorCard';
-import DropReview from '../../components/DropReview';
+import DropReview from '../../components/sidebar/DropReview';
 
 const BookedVendors = () => {
   const [favoriteVendors, setFavoriteVendors] = useState(favoriteVendorsData);
@@ -20,7 +20,7 @@ const BookedVendors = () => {
 
   return (
     <section className="lg:px-16 sm:px-8 px-3 py-6 font-raleway">
-      <Tabs>
+      <Tabs className="justify-between text-burgundy-100">
         <Tab label="Vendors on Favorite List">
           {favoriteVendors.map(vendor => (
             <VendorCard

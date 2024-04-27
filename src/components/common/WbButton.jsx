@@ -12,7 +12,7 @@ const WbButton = ({ text, size = 'normal', variant = 'filled', className, onClic
 
   return (
     <button
-      className={`${baseClasses} box-border rounded-md transition duration-300" ${className} ${sizeClasses}`}
+      className={`${baseClasses} box-border rounded-md transition duration-300 ${className} ${sizeClasses}`}
       onClick={onClick}
     >
       {text}

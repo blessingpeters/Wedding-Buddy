@@ -1,7 +1,7 @@
 import { useState } from "react";
 import WbButton from "../../components/common/WbButton";
 import DeleteModal from "../../components/modals/DeleteModal";
-import AddNewService from "../../components/AddNewService";
+import AddNewService from "../../components/sidebar/AddNewService";
 
 const VendorServices = () => {
   const [clients, setClients] = useState(clientsData);
@@ -67,6 +67,7 @@ const VendorServices = () => {
 };
 const clientsData = [
   {
+    id:1,
     img: "166px X 100px",
     name: "Wedding Venue Hall",
     address: "20 Ukah Street, Lagos Nigeria",
@@ -74,6 +75,7 @@ const clientsData = [
 
   },
   {
+    id:2,
     img: "166px X 100px",
     name: "Photography",
     address: "20 Ukah Street, Lagos Nigeria",
@@ -81,6 +83,7 @@ const clientsData = [
 
   },
   {
+    id:3,
     img: "166px X 100px",
     name: "Photography",
     address: "20 Ukah Street, Lagos Nigeria",
@@ -88,6 +91,7 @@ const clientsData = [
 
   },
   {
+    id:4,
     img: "166px X 100px",
     name: "Catering",
     address: "20 Ukah Street, Lagos Nigeria",
@@ -95,6 +99,7 @@ const clientsData = [
 
   },
   {
+    id:5,
     img: "166px X 100px",
     name: "Catering",
     address: "20 Ukah Street, Lagos Nigeria",

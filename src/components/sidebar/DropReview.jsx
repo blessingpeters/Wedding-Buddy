@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useState } from 'react';
-import WbButton from './common/WbButton';
+import WbButton from '../common/WbButton';
 
 const DropReview = ({ isOpen, closeSidebar }) => {
     const [couplesName, setcouplesName] = useState('');

@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useState } from 'react';
-import WbButton from './common/WbButton';
+import WbButton from '../common/WbButton';
 
 const AddNewService = ({ isOpen, closeSidebar }) => {
   const [category, setCategory] = useState('');
@@ -10,7 +10,7 @@ const AddNewService = ({ isOpen, closeSidebar }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Here, you'd handle the submission logic, perhaps sending the data to a backend.
+  
     console.log({ category, price, location, image });
     closeSidebar();
   };

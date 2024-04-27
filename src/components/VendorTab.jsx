@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useState } from 'react';
 
-const Tabs = ({ children }) => {
+const Tabs = ({ children, className }) => {
   const [activeTab, setActiveTab] = useState(children[0].props.label);
 
   const handleClick = (e, newActiveTab) => {
@@ -11,13 +11,13 @@ const Tabs = ({ children }) => {
 
   return (
     <div className="w-full mx-auto">
-      <div className="flex justify-between">
+      <div className={`flex ${className}`}>
         {children.map(child => (
           <button
             key={child.props.label}
             className={`${
-              activeTab === child.props.label ? 'border-b-2 border-burgundy-100' : ''
-            }  text-burgundy-100 text-sm lg:text-xl font-lato font-semibold py-2`}
+              activeTab === child.props.label ? 'border-b-2 border-burgundy-100 text-burgundy-100 ' : ''
+            } text-sm lg:text-xl font-lato font-semibold py-2`}
             onClick={e => handleClick(e, child.props.label)}
           >
             {child.props.label}
