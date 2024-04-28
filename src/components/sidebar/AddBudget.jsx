@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import WbButton from '../common/WbButton';
 
-const AddBudget = ({ isOpen, closeSidebar, addNewBudgetItem  }) => {
+const AddBudget = ({ isOpen, closeSidebar, addNewBudgetItem }) => {
   const [event, setEvent] = useState('');
   const [estimate, setEstimate] = useState('');
   const [actual, setActual] = useState('');
@@ -41,19 +41,26 @@ const AddBudget = ({ isOpen, closeSidebar, addNewBudgetItem  }) => {
             <option value="Venue">Venue</option>
             <option value="Photography">Photography</option>
             <option value="Catering">Catering</option>
+            <option value="Wedding Planner">Wedding Planner</option>
+            <option value="Cake Vendor">Cake Vendor</option>
+            <option value="Decoration">Decoration</option>
+            <option value="Bridal wear">Bridal wear</option>
+            <option value="Grooms wear">Grooms wear</option>
+            <option value="Venue">Venue</option>
+            <option value="Beauty/Makeup">Beauty/Makeup</option>
           </select>
         </label>
         <label className="block mb-3">
           <span>Estimate</span>
-          <input type="number"  value={estimate} onChange={(e) => setEstimate(e.target.value)} className="block p-3 w-full mt-1 border border-[#AFABAB] text-graywhite-600 placeholder:text-[#AFABAB] bg-inherit rounded" placeholder='Enter Estimate'/>
+          <input type="number" value={estimate} onChange={(e) => setEstimate(e.target.value)} className="block p-3 w-full mt-1 border border-[#AFABAB] text-graywhite-600 placeholder:text-[#AFABAB] bg-inherit rounded" placeholder='Enter Estimate' />
         </label>
         <label className="block mb-3">
           <span>Actual Price</span>
-          <input type="number" value={actual} onChange={(e) => setActual(e.target.value)} className="block p-3 w-full mt-1 border border-[#AFABAB] text-graywhite-600 placeholder:text-[#AFABAB] bg-inherit rounded" placeholder='ActualPrice'/>
+          <input type="number" value={actual} onChange={(e) => setActual(e.target.value)} className="block p-3 w-full mt-1 border border-[#AFABAB] text-graywhite-600 placeholder:text-[#AFABAB] bg-inherit rounded" placeholder='ActualPrice' />
         </label>
         <label className="block mb-3">
           <span>Paid</span>
-          <input type="number" value={paid} onChange={(e) => setPaid(e.target.value)} className="block p-3 w-full mt-1 border border-[#AFABAB] text-graywhite-600 placeholder:text-[#AFABAB] bg-inherit rounded" placeholder='How much have you paid?'/>
+          <input type="number" value={paid} onChange={(e) => setPaid(e.target.value)} className="block p-3 w-full mt-1 border border-[#AFABAB] text-graywhite-600 placeholder:text-[#AFABAB] bg-inherit rounded" placeholder='How much have you paid?' />
         </label>
         <label className="block mb-5">
           <span>Status:</span>
@@ -65,7 +72,7 @@ const AddBudget = ({ isOpen, closeSidebar, addNewBudgetItem  }) => {
           </select>
         </label>
 
-        <WbButton type="submit" size='small' className="py-4 text-lg w-full mt-24" text="Create a Budget"/>
+        <WbButton type="submit" size='small' className="py-4 text-lg w-full mt-24" text="Create a Budget" />
 
       </form>
     </div>

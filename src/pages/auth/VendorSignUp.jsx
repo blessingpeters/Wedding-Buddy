@@ -111,20 +111,20 @@ const VendorSignUp = () => {
               name="category"
               id="category"
             >
-              <option value="nigeria">Select One</option>
+              <option value="">Select One</option>
               <option value="phography">Photography/Videographer</option>
-              <option value="planner">Wedding Planner</option>
-              <option value="planner">Cake Vendor</option>
-              <option value="planner">Catering</option>
-              <option value="planner">Decoration</option>
-              <option value="planner">Bridal wear</option>
-              <option value="planner">Grooms wear</option>
-              <option value="planner">Florist</option>
-              <option value="planner">Hotel Bookings</option>
-              <option value="planner">Favours + Gifts</option>
-              <option value="planner">Bridal Salon</option>
-              <option value="planner">Venue</option>
-              <option value="planner">Beauty/Makeup</option>
+              <option value="Wedding Planner">Wedding Planner</option>
+              <option value="Cake Vendor">Cake Vendor</option>
+              <option value="Catering">Catering</option>
+              <option value="Decoration">Decoration</option>
+              <option value="Bridal wear">Bridal wear</option>
+              <option value="Grooms wear">Grooms wear</option>
+              <option value="Florist">Florist</option>
+              <option value="Hotel Bookings">Hotel Bookings</option>
+              <option value="Favours + Gifts">Favours + Gifts</option>
+              <option value="Bridal Salon">Bridal Salon</option>
+              <option value="Venue">Venue</option>
+              <option value="Beauty/Makeup">Beauty/Makeup</option>
             </select>
           </div>
           <div className="w-full my-6">
