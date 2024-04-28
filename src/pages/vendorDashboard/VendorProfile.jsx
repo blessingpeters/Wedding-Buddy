@@ -1,6 +1,12 @@
 import WbButton from "../../components/common/WbButton";
+import { useUser } from "../../context/UserContext";
 
 const VendorProfile = () => {
+  const { userType, userData } = useUser();
+  const username = userType === 'vendor' ? userData.companyName : `${userData.brideName} & ${userData.groomName}`;
+  const shortName = userType === 'vendor' ? userData.companyName.split(' ').map(n => n[0]).join('').toUpperCase() :
+    `${userData.brideName[0].toUpperCase()}${userData.groomName[0].toUpperCase()}`;
+    
   return (
     <section className="lg:px-16 sm:px-8 px-3 font-raleway">
       <div className=" text-graywhite-600  py-10 border-b border-[#AFABAB]">
@@ -11,7 +17,7 @@ const VendorProfile = () => {
       <form className="font-lato my-10" action="">
         <div className="py-4 border mb-6 px-3 rounded-lg flex gap-2 items-center">
           <p className="relative text-sm font-light font-lato text-burgundy-100 rounded-full w-12 h-12 bg-[#00004D21] flex items-center justify-center">
-            AE
+            {shortName}
             <img
               className="absolute right-1 bottom-1"
               src="/assets/icons/tiny-camera.svg"
@@ -19,7 +25,7 @@ const VendorProfile = () => {
             />
           </p>
           <div>
-            <p className="font-bold">Arevo Events</p>
+            <p className="font-bold">{username}</p>
             <p className="text-[#73797F] font-lato text-xs">Owner</p>
           </div>
         </div>
