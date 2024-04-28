@@ -13,6 +13,10 @@ const VendorServices = () => {
     setSelectedClient(client);
     setShowDeleteModal(true);
   };
+  const addNewService = (newItem) => {
+    const newId = clients.length + 1;
+    setClients([...clients, { ...newItem, id: newId }]);
+  };
   return (
     <section className="lg:px-16 px-3 py-10 font-raleway">
       <div className="flex flex-col">
@@ -33,13 +37,15 @@ const VendorServices = () => {
       <div className="text-graywhite-400 font-lato font-medium sm:text-lg tex-sm sm:gap-4 gap-1 w-full">
         {clients.map((client) => (
           <div key={client.id} className="h-[105px] grid grid-cols-5 gap-2  my-4 shadow text-center">
-            <p className="grid place-items-center bg-[#7777771A] max-sm:text-xs">{client.img}</p>
+
+            <img className="grid place-items-center bg-[#7777771A] max-sm:text-xs" src={client.image} alt="166px X 100px" />
+
             <div className="h-full lg:w-3/4 mx-auto flex flex-col justify-center text-left col-span-2">
-              <p className="max-sm:text-xs ">{client.name}</p>
-              <p className="sm:text-sm text-xs text-[#979191] font-normal">{client.address}</p>
+              <p className="max-sm:text-xs ">{client.category}</p>
+              <p className="sm:text-sm text-xs text-[#979191] font-normal">{client.location}</p>
             </div>
 
-            <p className="max-sm:text-xs flex items-center">{client.price}</p>
+            <p className="max-sm:text-xs flex items-center">N {client.price}</p>
             <div className="max-sm:text-xs flex items-center gap-2 lg:gap-10 flex-wrap">
 
             <p className=" sm:text-right text-green-800">Edit</p>
@@ -61,49 +67,49 @@ const VendorServices = () => {
           }}
         />
       )}
-            <AddNewService isOpen={isSidebarOpen} closeSidebar={() => setIsSidebarOpen(false)} />
+            <AddNewService isOpen={isSidebarOpen} closeSidebar={() => setIsSidebarOpen(false)} addNewService={addNewService}/>
     </section>
   );
 };
 const clientsData = [
   {
     id:1,
-    img: "166px X 100px",
-    name: "Wedding Venue Hall",
-    address: "20 Ukah Street, Lagos Nigeria",
-    price: "N 250,000",
+    image: "/assets/images/broken.png",
+    category: "Wedding Venue Hall",
+    location: "20 Ukah Street, Lagos Nigeria",
+    price: "250,000",
 
   },
-  {
+   {
     id:2,
-    img: "166px X 100px",
-    name: "Photography",
-    address: "20 Ukah Street, Lagos Nigeria",
-    price: "N 150,000",
+    image: "/assets/images/broken.png",
+    category: "Photography",
+    location: "20 Ukah Street, Lagos Nigeria",
+    price: "150,000",
 
   },
   {
     id:3,
-    img: "166px X 100px",
-    name: "Photography",
-    address: "20 Ukah Street, Lagos Nigeria",
-    price: "N 150,000",
+    image: "/assets/images/broken.png",
+    category: "Photography",
+    location: "20 Ukah Street, Lagos Nigeria",
+    price: "150,000",
 
   },
   {
     id:4,
-    img: "166px X 100px",
-    name: "Catering",
-    address: "20 Ukah Street, Lagos Nigeria",
-    price: "N 250,000",
+    image: "/assets/images/broken.png",
+    category: "Catering",
+    location: "20 Ukah Street, Lagos Nigeria",
+    price: "250,000",
 
   },
   {
     id:5,
-    img: "166px X 100px",
-    name: "Catering",
-    address: "20 Ukah Street, Lagos Nigeria",
-    price: "N 250,000",
+    image: "/assets/images/broken.png",
+    category: "Catering",
+    location: "20 Ukah Street, Lagos Nigeria",
+    price: "250,000",
 
   },
 ];

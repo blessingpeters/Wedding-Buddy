@@ -18,7 +18,7 @@ const MakePayment = ({ isOpen, closeSidebar, onComplete }) => {
 
   return (
     <div
-      className={`fixed right-0 top-0 h-full bg-[#F5F8FA] text-left shadow-lg z-50 transition-transform ${
+      className={`fixed right-0 top-0 h-full bg-[#F5F8FA] text-left shadow-lg z-50 transition-transform overflow-auto ${
         isOpen ? "translate-x-0" : "translate-x-full"
       } w-96 max-sm:w-full p-4 px-8`}
     >

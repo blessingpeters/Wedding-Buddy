@@ -71,9 +71,9 @@ const Clients = () => {
 
 const clientsData = [
   { id: 1, name: 'Kofi & Ada', email: 'obybo@gmail.com', date: '14/05/2024', status: 'In Progress' },
-  { id: 1, name: 'Kofi & Ada', email: 'obybo@gmail.com', date: '14/05/2024', status: 'In Progress' },
-  { id: 2, name: 'Obinna & Bolaji', email: 'obybo@gmail.com', date: '14/05/2024', status: 'Completed' },
-  { id: 2, name: 'Obinna & Bolaji', email: 'obybo@gmail.com', date: '14/05/2024', status: 'Completed' }
+  { id: 2, name: 'Kofi & Ada', email: 'obybo@gmail.com', date: '14/05/2024', status: 'In Progress' },
+  { id: 3, name: 'Obinna & Bolaji', email: 'obybo@gmail.com', date: '14/05/2024', status: 'Completed' },
+  { id: 4, name: 'Obinna & Bolaji', email: 'obybo@gmail.com', date: '14/05/2024', status: 'Completed' }
 ];
 
 

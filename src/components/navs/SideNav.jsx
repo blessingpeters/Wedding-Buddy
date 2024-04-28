@@ -117,15 +117,20 @@ const vendorMenu = [
     icon: "/assets/icons/serviceIcon.svg",
     href: "/vendor-dashboard/services",
   },
-  {
-    name: "Booking",
-    icon: "/assets/icons/bookIcon.svg",
-    href: "/vendor-dashboard/booking",
-  },
+  // {
+  //   name: "Booking",
+  //   icon: "/assets/icons/bookIcon.svg",
+  //   href: "/vendor-dashboard/booking",
+  // },
   {
     name: "Portfolio",
     icon: "/assets/icons/suitcaseicon2.svg",
     href: "/vendor-dashboard/portfolio",
+  },
+  {
+    name: "Payment",
+    icon: "/assets/icons/wallet-icon.svg",
+    href: "/vendor-dashboard/payment",
   },
   {
     name: "Reviews",

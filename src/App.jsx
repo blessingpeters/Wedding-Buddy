@@ -22,7 +22,7 @@ import Bookings from './pages/vendorDashboard/Bookings';
 import Portfolio from './pages/vendorDashboard/Portfolio';
 import Reviews from './pages/vendorDashboard/Reviews';
 import Clients from './pages/vendorDashboard/Clients';
-import GuessList from './pages/coupleDashboard/GuessList';
+import GuessList from './pages/coupleDashboard/GuestList';
 import Tips from './pages/coupleDashboard/Tips';
 import CheckList from './pages/coupleDashboard/CheckList';
 import BookedVendors from './pages/coupleDashboard/BookedVendors';
@@ -30,6 +30,7 @@ import VendorProfile from './pages/vendorDashboard/VendorProfile';
 import CoupleProfile from './pages/coupleDashboard/CoupleProfile';
 import Notification from './components/Notification';
 import PrivateRoute from './components/PrivateRoute';
+import Payment from './pages/vendorDashboard/Payment';
 
 function App() {
   return (
@@ -71,6 +72,7 @@ function App() {
           <Route path="services" element={<VendorServices />} />
           <Route path="booking" element={<Bookings />} />
           <Route path="portfolio" element={<Portfolio/>} />
+          <Route path="payment" element={<Payment />} />
           <Route path="reviews" element={<Reviews/>} />
           <Route path="notifications" element={<Notification/>} />
           <Route path="profile" element={<VendorProfile/>} />

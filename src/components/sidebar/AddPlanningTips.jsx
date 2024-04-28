@@ -20,7 +20,7 @@ const AddGuestlist = ({ isOpen, closeSidebar, addNewTips }) => {
   };
 
   return (
-    <div className={`fixed right-0 top-0 h-full bg-[#F5F8FA] shadow-lg z-50 transition-transform ${isOpen ? 'translate-x-0' : 'translate-x-full'} w-96 max-sm:w-full p-4 px-8`}>
+    <div className={`fixed right-0 top-0 h-full bg-[#F5F8FA] shadow-lg z-50 transition-transform overflow-auto ${isOpen ? 'translate-x-0' : 'translate-x-full'} w-96 max-sm:w-full p-4 px-8`}>
       <div className='flex justify-between items-center'>
         <h2 className="text-xl font-semibold text-graywhite-600">Planning Tips</h2>
         <button onClick={closeSidebar} className="text-burgundy-100 font-light text-4xl px-2 bg-burgundy-100/10">&times;</button>

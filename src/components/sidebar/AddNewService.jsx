@@ -2,21 +2,27 @@
 import { useState } from 'react';
 import WbButton from '../common/WbButton';
 
-const AddNewService = ({ isOpen, closeSidebar }) => {
+const AddNewService = ({ isOpen, closeSidebar, addNewService }) => {
   const [category, setCategory] = useState('');
   const [price, setPrice] = useState('');
   const [location, setLocation] = useState('');
   const [image, setImage] = useState(null);
 
+
   const handleSubmit = (e) => {
     e.preventDefault();
-  
-    console.log({ category, price, location, image });
+    addNewService({
+      category, price, location, image
+    });
     closeSidebar();
+    setCategory('');
+    setPrice('');
+    setLocation('');
+    setImage('');
   };
 
   return (
-    <div className={`fixed right-0 top-0 h-full bg-[#F5F8FA] shadow-lg z-50 transition-transform ${isOpen ? 'translate-x-0' : 'translate-x-full'} w-96 max-sm:w-full p-4 px-8`}>
+    <div className={`fixed right-0 top-0 h-full bg-[#F5F8FA] shadow-lg z-50 transition-transform overflow-auto ${isOpen ? 'translate-x-0' : 'translate-x-full'} w-96 max-sm:w-full p-4 px-8`}>
       <div className='flex justify-between items-center'>
         <h2 className="text-xl font-semibold text-graywhite-600">Create New Service</h2>
         <button onClick={closeSidebar} className="text-burgundy-100 font-light text-4xl px-2 bg-burgundy-100/10">&times;</button>

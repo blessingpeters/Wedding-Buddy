@@ -1,6 +1,15 @@
+import { useState } from "react";
+import AddImage from "../../components/sidebar/AddImage"
 import WbButton from "../../components/common/WbButton";
 
 const Portfolio = () => {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const addNewImage = (newItem) => {
+    console.log(newItem)
+    // const newId = budgetDetails.length + 1;
+    // setBudgetDetails([...budgetDetails, { ...newItem, id: newId }]);
+  };
+
   return (
     <section className="lg:px-16 sm:px-8 px-3 py-10 font-raleway text-graywhite-600">
       <div className="">
@@ -72,8 +81,9 @@ const Portfolio = () => {
           src="/assets/images/bridesmaid.png"
           alt="brides maid"
         />
-        <WbButton className="sm:w-1/2 w-full" text="Add New Image" />
+        <WbButton className="sm:w-1/2 w-full" text="Add New Image" onClick={() => setIsSidebarOpen(true)}/>
       </div>
+      <AddImage isOpen={isSidebarOpen} closeSidebar={() => setIsSidebarOpen(false)} addNewImage={addNewImage}/>
     </section>
   );
 };
