@@ -12,7 +12,8 @@ export default {
       fontFamily: {
         raleway: ["Raleway", "sans-serif"],
         lato: ["Lato", "sans-serif"],
-        inter: ["Inter", "san-serif"]
+        inter: ["Inter", "san-serif"],
+        openSans: ["Open Sans", "sans-serif"]
       },
       colors:{
         burgundy:{
