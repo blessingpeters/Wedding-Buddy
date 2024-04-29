@@ -79,7 +79,7 @@ const Payment = () => {
           {withdrawal.map((info) => (
             <div
               key={info.id}
-              className="max-sm:text-xs text-graywhite-400 text-sm font-lato p-5 border grid grid-cols-6 gap-2 bg-[#F9F9F9]"
+              className="max-sm:text-xs text-graywhite-400 text-sm font-lato p-5 border-b border-gray-200 grid grid-cols-6 gap-2 bg-[#F9F9F9]"
             >
               <div>
                 <label className="flex items-center space-x-2">
