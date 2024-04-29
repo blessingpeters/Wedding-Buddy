@@ -107,11 +107,11 @@ const vendorMenu = [
     icon: "/assets/icons/clients.svg",
     href: "/vendor-dashboard/clients",
   },
-  {
-    name: "Vendors",
-    icon: "/assets/icons/suticaseIcon.svg",
-    href: "/vendor-dashboard/subvendors",
-  },
+  // {
+  //   name: "Vendors",
+  //   icon: "/assets/icons/suticaseIcon.svg",
+  //   href: "/vendor-dashboard/subvendors",
+  // },
   {
     name: "Services",
     icon: "/assets/icons/serviceIcon.svg",
