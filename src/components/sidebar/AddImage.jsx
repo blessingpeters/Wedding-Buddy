@@ -8,7 +8,6 @@ const AddImage = ({ isOpen, closeSidebar, addNewImage }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log({ image });
     addNewImage({image})
     closeSidebar();
     setImage(null)

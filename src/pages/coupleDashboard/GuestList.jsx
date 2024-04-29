@@ -7,7 +7,6 @@ const GuestList = () => {
   const [guests, setGuests] = useState(guestList);
 
   const addNewGuest = (newItem) => {
-    console.log(newItem, " guest added");
     const newId = guests.length + 1;
     setGuests([...guests, { ...newItem, id: newId }]);
   };

@@ -42,7 +42,6 @@ const Login = ({ userType }) => {
         throw new Error(`Access denied. This portal is for ${userType}s only.`);
       }
 
-      console.log("Login successful:", user);
       login(userType, userData);
       navigate(userType === "vendor" ? "/vendor-dashboard" : "/couple-dashboard");
       toast.success("Login successful!");

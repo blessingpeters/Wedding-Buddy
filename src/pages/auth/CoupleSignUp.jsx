@@ -65,7 +65,6 @@ const CoupleSignUp = () => {
   };
 
   const nextStep = () => {
-    console.log("Next step called", currentStep);
     if (currentStep < 3) {
       setCurrentStep(currentStep + 1);
     } else {
