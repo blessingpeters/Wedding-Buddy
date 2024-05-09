@@ -13,3 +13,8 @@ The following were used to build the application:
 # Live Link
 
 This is the link to the deployed application. - [Wedding Buddy](https://wedding-buddy.vercel.app/)
+
+## Screenshot
+
+![Screenshot of WeddingBuddy App](public/weddingbuddy-ss.png)
+![Screenshot of WeddingBuddy App](public/weddingbuddy.png)
